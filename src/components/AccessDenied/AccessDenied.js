@@ -1,5 +1,5 @@
-import { signIn } from "next-auth/react"
-import Link from "next/link"
+
+import { Link } from "react-router-dom"
 
 export default function AccessDenied() {
   return (
@@ -7,12 +7,12 @@ export default function AccessDenied() {
       <h1>Access Denied</h1>
       <p>
         <Link
-          href="/auth/login"
+          to="/auth/login"
          
         >
           <a  onClick={(e) => {
             e.preventDefault()
-            signIn()
+            
           }} > You must be signed in to view this page</a>
         
         </Link>

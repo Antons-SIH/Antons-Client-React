@@ -26,7 +26,7 @@ const NavBar = (props) => {
           <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
             <li className=" md:border-none px-2">
               <Link
-                href="/"
+                to="/#"
                 className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
               >
                 Home
@@ -34,7 +34,7 @@ const NavBar = (props) => {
             </li>
             <li className=" md:border-none px-2">
               <Link
-                href="/user/upload"
+                to="/user/upload"
                 className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker"
               >
                 Upload Document
@@ -42,7 +42,7 @@ const NavBar = (props) => {
             </li>
             <li className=" md:border-none px-2">
               <Link
-                href="/user/upload"
+                to="/user/profile"
                 className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker"
               >
                 Profile
@@ -50,12 +50,12 @@ const NavBar = (props) => {
             </li>
             <li className=" md:border-none px-2">
               <Link
-                href="/"
+                to="/"
                 className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker"
               >
-                <a onClick={logout}>
+                <div onClick={logout}>
                   <span className="hide-sm"> &nbsp;Logout</span>
-                </a>
+                </div>
               </Link>
             </li>
           </ul>
@@ -85,6 +85,7 @@ const NavBar = (props) => {
 };
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     isAuthenticated: state.isAuthenticated,
     userData: state.userData,

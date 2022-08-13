@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "9ad7f519-0d55-44d6-9d47-16b90b034fb8",
+		"name": "SIH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21837112"
+	},
+	"item": [
+		{
+			"name": "App",
+			"item": [
+				{
+					"name": "/api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Jul 2022 12:22:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "\"Welcome to Antons-Flask-Backend\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"maanav@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/auth/login",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"ankush\",\r\n    \"password\":\"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/auth/login",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Jul 2022 12:21:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozfQ.tRDOZ0UA48QyQ-HMOeMlxRlsNQwFk50qJ8wI_EeM6nU\",\n    \"message\": \"token sent\"\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maanav@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"college\": \"Pune Institute of Computer Technology\",\r\n    \"first_name\": \"Maanav\",\r\n    \"last_name\": \"Chandwani\",\r\n    \"user_type\": \"Student\",\r\n    \"phone\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/auth/register",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"raj123\",\r\n    \"password\":\"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/auth/register",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Jul 2022 12:22:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get_profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/auth/profile",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get_profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/api/auth/profile",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 12 Aug 2022 19:25:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 1,\n        \"email\": \"maanav@gmail.com\",\n        \"college\": \"Pune Institute of Computer Technology\",\n        \"name\": \"Maanav Chandwani\",\n        \"user_type\": \"Student\",\n        \"phone\": \"1234567890\",\n        \"aadhar\": \"XXXXXXXX1568\",\n        \"aadhar_date\": \"2022-08-12 17:42:24.511878+00:00\",\n        \"pan\": null,\n        \"pan_date\": \"None\"\n    },\n    \"error\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "image",
+			"item": [
+				{
+					"name": "upload_aadhar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Atharva Kinikar/Downloads/IMG_20220731_152824.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/image/upload",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "upload_image",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Atharva Kinikar/Pictures/Camera Roll/WIN_20220616_01_18_09_Pro.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/image/upload",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"image",
+										"upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 31 Jul 2022 09:55:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"messag\": \"file received successfully!\",\n    \"filename\": \"WIN_20220616_01_18_09_Pro.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "upload_pan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/aryan/Aryan/Work/PROJECT/WEB D/SIH/pratik_aadhar.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/image/upload/pan",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"image",
+								"upload",
+								"pan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Details",
+			"item": [
+				{
+					"name": "admin_details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/details/admin",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"details",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "admin_details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/details/admin",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"details",
+										"admin"
+									]
+								}
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 09:47:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": null,\n    \"error\": \"Access Denied!Access Token not found!\"\n}"
+						},
+						{
+							"name": "admin_details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/api/details/admin",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"details",
+										"admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 10:11:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "582"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"email\": \"maanav@gmail.com\",\n            \"college\": \"Pune Institute of Computer Technology\",\n            \"name\": \"Maanav Chandwani\",\n            \"user_type\": \"Student\",\n            \"phone\": \"1234567890\",\n            \"aadhar\": \"250202031568\",\n            \"aadhar_date\": \"2022-08-12 17:42:24.511878+00:00\",\n            \"pan\": null,\n            \"pan_date\": \"None\",\n            \"seeded_bank_acc\": \"121212\",\n            \"seeded_date\": \"2022-08-12 17:42:24.886923+00:00\"\n        }\n    ],\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "superadmin_details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/api/details/super",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"details",
+								"super"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "superadmin_details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WYJ4mOfZzIAHzXe0e70CzYBbisTT6Yfwk_4yvdKfb6w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/api/details/super",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"details",
+										"super"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.0 Python/3.10.5"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 10:12:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "582"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"email\": \"maanav@gmail.com\",\n            \"college\": \"Pune Institute of Computer Technology\",\n            \"name\": \"Maanav Chandwani\",\n            \"user_type\": \"Student\",\n            \"phone\": \"1234567890\",\n            \"aadhar\": \"250202031568\",\n            \"aadhar_date\": \"2022-08-12 17:42:24.511878+00:00\",\n            \"pan\": null,\n            \"pan_date\": \"None\",\n            \"seeded_bank_acc\": \"121212\",\n            \"seeded_date\": \"2022-08-12 17:42:24.886923+00:00\"\n        }\n    ],\n    \"error\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

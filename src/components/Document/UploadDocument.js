@@ -4,6 +4,7 @@ import { Requests } from "../../utils/Index";
 import FormData from "form-data";
 
 const UploadDocument = (props) => {
+  const [loading,setLoading] = useState(false);
   const [files, setFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -25,7 +26,7 @@ const UploadDocument = (props) => {
     var formData = new FormData();
     formData.append("file", files[0]);
     try {
-      Requests.submitFile(formData);
+      Requests.uploadAdhar(formData);
     } catch (e) {
       console.log(e);
     }
