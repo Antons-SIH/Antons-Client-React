@@ -29,7 +29,7 @@ export const login = (data, config) => {
 
 export const getUserByToken = (token) => {
   return backend.get("/auth/profile", {
-    headers: { authorization: `${token}` },
+    headers: { Authorization: `${token}` },
   });
 };
 

@@ -28,6 +28,11 @@ const LandingPage = (props) => {
                 <h1 className="text-white font-semibold text-5xl pt-12">
                   Welcome
                 </h1>
+               { props.isAuthenticated ? (
+                 <h1 className="text-white font-semibold text-5xl pt-12">
+                 {props.userData.name}
+               </h1>
+               ):(
                 <p className="mt-4 text-lg text-gray-300">
                   <Link to="/auth/login">
                     <button
@@ -38,6 +43,8 @@ const LandingPage = (props) => {
                     </button>
                   </Link>
                 </p>
+               )
+                }
               </div>
             </div>
           </div>
@@ -112,9 +119,10 @@ const LandingPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
+
   return {
-    isLoggedIn: state.login,
+    isAuthenticated: state.isAuthenticated,
+    userData:state.userData
   };
 };
 

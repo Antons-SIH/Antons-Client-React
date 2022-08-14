@@ -1,9 +1,16 @@
 import React from "react";
+import { useEffect } from "react";
 import { login, logout } from "../../store/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
+
+  useEffect(() => {
+    console.log(props)
+    
+    
+  }, []);
   function logout() {
     localStorage.removeItem("userinfo");
     props.logout();

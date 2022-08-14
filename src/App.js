@@ -18,9 +18,7 @@ function App(props) {
       console.log(token)
       Requests.getUserByToken(token)
         .then((res) => {
-          console.log("app");
-          console.log(res)
-          props.login(res.data);
+          props.login(res);
         })
         .catch((error) => {});
     } else {
@@ -40,7 +38,7 @@ function App(props) {
   );
 }
 const mapStateToProps = (state) => {
-  console.log(state)
+ 
   return {
     isAuthenticated: state.isAuthenticated
   };
