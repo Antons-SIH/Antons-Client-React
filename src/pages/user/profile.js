@@ -1,14 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
       <div className="antialiased w-full h-full text-gray-400 font-inter p-10">
         <div className="container px-4 mx-auto">
           <div>
             <div id="title" className="text-center my-10">
-              <h1 className="font-bold text-4xl text-white">User Name</h1>
+              <h1 className="font-bold text-4xl text-white">
+                {props.userData.name}
+              </h1>
               <p className="text-light text-gray-500 text-xl">
                 Verified Documents
               </p>
@@ -76,7 +78,7 @@ const Profile = () => {
                 >
                   <h2 className="font-bold text-3xl text-white">Pan Card</h2>
                   <h3 className="font-normal text-red-500 text-xl mt-2">
-                    Verified
+                    Not Verified
                   </h3>
                 </div>
                 <div id="content" className="">
@@ -126,9 +128,11 @@ const Profile = () => {
                   id="title"
                   className="w-full py-5 border-b border-gray-800"
                 >
-                  <h2 className="font-bold text-3xl text-white">Enterprise</h2>
+                  <h2 className="font-bold text-3xl text-white">
+                    Bank Details
+                  </h2>
                   <h3 className="font-normal text-red-500 text-xl mt-2">
-                    Verified
+                    Not Verified
                   </h3>
                 </div>
                 <div id="content" className="">
@@ -178,4 +182,15 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated,
+    userData: state.userData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

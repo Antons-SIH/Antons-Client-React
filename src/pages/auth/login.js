@@ -10,10 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Login = (props) => {
 
-  useEffect(() => {
-    console.log(process.env.REACT_APP_SIH_API);
-    console.log(props)
-  });
+  
   const [loading,setLoading] = useState(false);
   let navigate = useNavigate();
   const validate = Yup.object({
@@ -89,7 +86,6 @@ const Login = (props) => {
                 onClick={formik.handleSubmit}
                 disabled={loading?true:false}
               >
-               
                 {loading ?"Loading":"Login"}
               </button>
             </div>
