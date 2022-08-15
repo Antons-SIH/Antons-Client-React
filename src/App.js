@@ -18,6 +18,7 @@ function App(props) {
       console.log(token)
       Requests.getUserByToken(token)
         .then((res) => {
+          
           props.login(res);
         })
         .catch((error) => {});
