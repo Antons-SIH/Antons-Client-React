@@ -8,6 +8,16 @@ import { Formik } from "formik";
 import { Requests } from "../../utils/Index";
 import { login } from "../../store/actions";
 
+const college =[
+  "Pune Institute Of Computer Technology",
+  "Indian Institute of Technology",
+  "COllege of Engineerign Pune",
+  "National Institute of Technology"
+]
+
+
+
+
 const Register = (props) => {
   let navigate = useNavigate();
   const [loading,setLoading] = useState(false);
@@ -107,12 +117,20 @@ const Register = (props) => {
               <Field
                 className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 placeholder={"College Name"}
+                component ="select"
                 name={"college"}
                 type={"college"}
                 onChange={formik.handleChange}
+                
               >
+                {
+                  college.map((val,id) => 
+                  <option value={val} >{val}</option>
+                  )
+                }
                 </Field>
             </div>
+     
             <div className="">
               <Field
                 className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
@@ -153,12 +171,12 @@ const Register = (props) => {
               pauseOnHover
               theme="dark"
             /> */}
-            <p className="link p-1 flex space-x-2 justify-center text-black">
+            <div className="link p-1 flex space-x-2 justify-center text-black">
               <div> have an account ? </div>
               <Link to="/auth/login" className="text-cyan-500">
                 login
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       )}
