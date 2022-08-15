@@ -110,7 +110,8 @@ const Register = (props) => {
                 name={"college"}
                 type={"college"}
                 onChange={formik.handleChange}
-              />
+              >
+                </Field>
             </div>
             <div className="">
               <Field
