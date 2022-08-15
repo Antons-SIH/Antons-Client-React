@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 const Profile = (props) => {
+  console.log(props.userData)
   return (
     <div>
       <div className="antialiased w-full h-full text-gray-400 font-inter p-10">
@@ -26,7 +27,7 @@ const Profile = (props) => {
                 >
                   <h2 className="font-bold text-3xl text-white">Aadhar</h2>
                   <h3 className="font-normal text-green-500 text-xl mt-2">
-                    Verified
+                    {props.userData.aadhar ? "verified":" Not Verified"}
                   </h3>
                 </div>
                 <div id="content" className="">
@@ -46,7 +47,7 @@ const Profile = (props) => {
                       />
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
-                      Verified On : 8 August 2022
+                      Verified On : {props.userData.aadhar_date==="None"?"Not yet Verified":props.userData.aadhar_date.substring(0,10)}
                     </p>
                   </div>
                   <div
@@ -55,14 +56,14 @@ const Profile = (props) => {
                   >
                     <ul>
                       <li>Size: 2 MB size</li>
-                      <li>--</li>
+                      <li className="font-bold">Remark - {props.userData.aadhar_remark}</li>
                     </ul>
                     <div id="verify" className="w-full mt-10 px-6">
                       <a
                         href="/user/upload"
                         className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                       >
-                        Verify
+                          {props.userData.aadhar ? "verify again":" verify"}
                       </a>
                     </div>
                   </div>
@@ -78,7 +79,7 @@ const Profile = (props) => {
                 >
                   <h2 className="font-bold text-3xl text-white">Pan Card</h2>
                   <h3 className="font-normal text-red-500 text-xl mt-2">
-                    Not Verified
+                  {props.userData.pan ? "verified":" Not Verified"}
                   </h3>
                 </div>
                 <div id="content" className="">
@@ -98,7 +99,7 @@ const Profile = (props) => {
                       />
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
-                      Verified On : Not yet Verified
+                    Verified On : {props.userData.pan_date==="None"?"Not yet Verified":props.userData.pan_date.substring(0,10)}
                     </p>
                   </div>
                   <div
@@ -106,15 +107,15 @@ const Profile = (props) => {
                     className="leading-8 mb-10 text-lg font-light"
                   >
                     <ul>
-                      <li>Size: --</li>
-                      <li>--</li>
+                      <li>Size:  2 MB size</li>
+                      <li className="font-bold">Remark - {props.userData.pan_remark}</li>
                     </ul>
                     <div id="verify" className="w-full mt-10 px-6">
                       <a
                         href="/user/upload"
                         className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                       >
-                        Verify
+                       {props.userData.pan ? "verify again":" verify"}
                       </a>
                     </div>
                   </div>
@@ -132,7 +133,7 @@ const Profile = (props) => {
                     Bank Details
                   </h2>
                   <h3 className="font-normal text-red-500 text-xl mt-2">
-                    Not Verified
+                  {props.userData.seeded_bank_acc ? "verified":" Not Verified"}
                   </h3>
                 </div>
                 <div id="content" className="">
@@ -152,7 +153,7 @@ const Profile = (props) => {
                       />
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
-                      Verified On : Not yet Verified
+                    Verified On : {props.userData.seeded_date==="None"?"Not yet Verified":props.userData.seeded_date.substring(0,10)}
                     </p>
                   </div>
                   <div
@@ -160,15 +161,15 @@ const Profile = (props) => {
                     className="leading-8 mb-10 text-lg font-light"
                   >
                     <ul>
-                      <li>Size: --</li>
-                      <li>--</li>
+                      <li>Size:  2 MB size</li>
+                      <li className="font-bold">Remark - {props.userData.seeded_remark}</li>
                     </ul>
                     <div id="verify" className="w-full mt-10 px-6">
                       <a
                         href="/user/upload"
                         className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                       >
-                        Verify
+                         {props.userData.seeded_bank_acc ? "verify again":" verify"}
                       </a>
                     </div>
                   </div>
