@@ -3,30 +3,53 @@ import { useDropzone } from "react-dropzone";
 import { Requests } from "../../utils/Index";
 import FormData from "form-data";
 
-const UploadDocument = (props) => {
-  const [loading,setLoading] = useState(false);
+const UploadAadhar = (props) => {
+  const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState([]);
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/png": [".png"],
-      "image/jpg": [".jpg"],
-    },
-    onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        )
-      );
-    },
+  const [email, setEmail] = useState("");
+  const { acceptedFiles, fileRejections, getRootProps, getInputProps } =
+    useDropzone({
+      maxFiles: 1,
+      accept: {
+        "image/png": [".png"],
+        "image/jpg": [".jpg"],
+      },
+      onDrop: (acceptedFiles) => {
+        setFiles(
+          acceptedFiles.map((file) =>
+            Object.assign(file, {
+              preview: URL.createObjectURL(file),
+            })
+          )
+        );
+      },
+    });
+  const acceptedFileItems = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => {
+    return (
+      <li key={file.path}>
+        {file.path} - {file.size} bytes
+        <ul>
+          {errors.map((e) => (
+            <li key={e.code}>{e.message}</li>
+          ))}
+        </ul>
+      </li>
+    );
   });
+  const form = document.querySelector("form");
   const handleSubmit = async (e) => {
     e.preventDefault();
     var formData = new FormData();
     formData.append("file", files[0]);
+    formData.append("email", email);
     try {
-      Requests.uploadAdhar(formData);
+      Requests.uploadPan(formData);
     } catch (e) {
       console.log(e);
     }
@@ -103,4 +126,4 @@ const UploadDocument = (props) => {
   );
 };
 
-export default UploadDocument;
+export default UploadAadhar;

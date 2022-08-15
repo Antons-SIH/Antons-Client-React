@@ -7,15 +7,18 @@ import LandingPage from "./pages/home";
 import Login from "./pages/auth/login";
 import Profile from "./pages/user/profile";
 import NavBar from "./components/NavBar/NavBar";
-import Upload from "./pages/user/upload"
-import Register from "./pages/auth/register"
+import Upload from "./pages/user/upload";
+import Register from "./pages/auth/register";
 import { connect } from "react-redux";
+import UploadAadhar from "./components/Document/UploadAadhar";
+import UploadPan from "./components/Document/UploadPan";
+
 function App(props) {
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
     if (token) {
-      console.log(token)
+      console.log(token);
       Requests.getUserByToken(token)
         .then((res) => {
           
@@ -34,14 +37,15 @@ function App(props) {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/user/profile" element={<Profile />} />
         <Route path="/user/upload" element={<Upload />} />
+        <Route path="/user/upload/aadhar" element={<UploadAadhar />} />
+        <Route path="/user/upload/pan" element={<UploadPan />} />
       </Routes>
     </div>
   );
 }
 const mapStateToProps = (state) => {
- 
   return {
-    isAuthenticated: state.isAuthenticated
+    isAuthenticated: state.isAuthenticated,
   };
 };
 

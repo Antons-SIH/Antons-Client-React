@@ -4,17 +4,17 @@ const backend = axios.create({
   baseURL: `${process.env.REACT_APP_SIH_API}`,
 });
 
-export const uploadAdhar = (file) => {
+export const uploadAadhar = (file) => {
   return backend.post("/image/upload/aadhar", file, {
     headers: {
-      "Content-Type": file.type,
+      "Content-Type": "multipart/form-data",
     },
   });
 };
 export const uploadPan = (file) => {
-  return backend.post("/image/upload", file, {
+  return backend.post("/image/upload/pan", file, {
     headers: {
-      "Content-Type": file.type,
+      "Content-Type": "multipart/form-data",
     },
   });
 };

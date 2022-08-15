@@ -48,3 +48,19 @@
     top: 0;
   }
 }
+
+.dropzone {
+  text-align: center;
+  padding: 70px;
+  border: 3px dashed #534c4c;
+  color: #bdbdbd;
+  margin-bottom: 20px;
+}
+
+.accept {
+  border-color: #107c10 !important;
+}
+
+.reject {
+  border-color: #d83b01 !important;
+}

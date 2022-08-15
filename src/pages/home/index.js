@@ -1,9 +1,8 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
 
 const LandingPage = (props) => {
-  console.log(props)
   const styling = {
     backgroundImage: `url('https://www.ameyo.com/wp-content/uploads/2021/01/Video-KYC-for-NBFCs.png')`,
     width: "100%",
@@ -28,23 +27,22 @@ const LandingPage = (props) => {
                 <h1 className="text-white font-semibold text-5xl pt-12">
                   Welcome
                 </h1>
-               { props.isAuthenticated ? (
-                 <h1 className="text-white font-semibold text-5xl pt-12">
-                 {props.userData.name}
-               </h1>
-               ):(
-                <p className="mt-4 text-lg text-gray-300">
-                  <Link to="/auth/login">
-                    <button
-                      className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                      type="submit"
-                    >
-                      Login
-                    </button>
-                  </Link>
-                </p>
-               )
-                }
+                {props.isAuthenticated ? (
+                  <h1 className="text-white font-semibold text-5xl pt-12">
+                    {props.userData.name}
+                  </h1>
+                ) : (
+                  <p className="mt-4 text-lg text-gray-300">
+                    <Link to="/auth/login">
+                      <button
+                        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                        type="submit"
+                      >
+                        Login
+                      </button>
+                    </Link>
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -119,17 +117,14 @@ const LandingPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-
   return {
     isAuthenticated: state.isAuthenticated,
-    userData:state.userData
+    userData: state.userData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-   
-  };
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
