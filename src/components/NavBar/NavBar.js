@@ -23,42 +23,77 @@ const NavBar = (props) => {
         </label>
 
         {props.isAuthenticated ? (
-          <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
-            <li className=" md:border-none px-2 hover:text-gray-400">
-              <Link
-                to="/#"
-                className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
-              >
-                Home
-              </Link>
-            </li>
-            <li className=" md:border-none px-2 hover:text-gray-400">
-              <Link
-                to="/user/upload"
-                className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
-              >
-                Upload Document
-              </Link>
-            </li>
-            <li className=" md:border-none px-2 hover:text-gray-400">
-              <Link
-                to="/user/profile"
-                className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
-              >
-                Profile
-              </Link>
-            </li>
-            <li className=" md:border-none px-2 hover:text-gray-400">
-              <Link
-                to="/"
-                className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
-              >
-                <div onClick={logout}>
-                  <span className="hide-sm"> &nbsp;Logout</span>
-                </div>
-              </Link>
-            </li>
-          </ul>
+          <>
+            {props.userData.user_type == "User" ? (
+              <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
+                <li className=" md:border-none px-2 hover:text-gray-400">
+                  <Link
+                    to="/#"
+                    className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className=" md:border-none px-2 hover:text-gray-400">
+                  <Link
+                    to="/user/upload"
+                    className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
+                  >
+                    Upload Document
+                  </Link>
+                </li>
+                <li className=" md:border-none px-2 hover:text-gray-400">
+                  <Link
+                    to="/user/profile"
+                    className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li className=" md:border-none px-2 hover:text-gray-400">
+                  <Link
+                    to="/"
+                    className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
+                  >
+                    <div onClick={logout}>
+                      <span className="hide-sm"> &nbsp;Logout</span>
+                    </div>
+                  </Link>
+                </li>
+              </ul>
+            ) : (
+              <>
+                <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
+                  <li className=" md:border-none px-2 hover:text-gray-400">
+                    <Link
+                      to="/#"
+                      className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li className=" md:border-none px-2 hover:text-gray-400">
+                    <Link
+                      to="/admin/view"
+                      className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
+                    >
+                      View
+                    </Link>
+                  </li>
+                  <li className=" md:border-none px-2 hover:text-gray-400">
+                    <Link
+                      to="/"
+                      className="block md:inline-block px-1 py-3 no-underline text-grey-darkest hover:text-grey-darker"
+                    >
+                      <div onClick={logout}>
+                        <span className="hide-sm"> &nbsp;Logout</span>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            )}
+          </>
         ) : (
           <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
             <li className=" md:border-none px-2 p-2 hover:text-gray-400">
@@ -85,7 +120,6 @@ const NavBar = (props) => {
 };
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     isAuthenticated: state.isAuthenticated,
     userData: state.userData,

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UploadDocument from "../../components/Document/UploadAadhar";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Upload = () => {
+const Upload = (props) => {
+  useEffect(() => {
+    console.log(props.userData);
+  });
   return (
     <div className="px-32 sm-px-10">
       <div className="container mx-auto px-10 sm:px-8">
@@ -51,15 +55,27 @@ const Upload = () => {
                     </td>
                     <td className="px-5 py-5 bg-gray-800 "></td>
                     <td className="px-5 py-5 bg-gray-800 "></td>
-                    <td className="px-5 py-5 bg-gray-800 ">
-                      <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                        <span
-                          aria-hidden
-                          className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
-                        ></span>
-                        <span className="relative">Not Verified</span>
-                      </span>
-                    </td>
+                    {props.userData.aadhar ? (
+                      <td className="px-5 py-5 bg-gray-800 ">
+                        <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                          ></span>
+                          <span className="relative">Verified</span>
+                        </span>
+                      </td>
+                    ) : (
+                      <td className="px-5 py-5 bg-gray-800 ">
+                        <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                          ></span>
+                          <span className="relative">Not Verified</span>
+                        </span>
+                      </td>
+                    )}
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/aadhar">
                         <button
@@ -91,15 +107,27 @@ const Upload = () => {
                     </td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
-                    <td className="px-5 py-5   bg-gray-800 ">
-                      <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                        <span
-                          aria-hidden
-                          className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                        ></span>
-                        <span className="relative">Verified</span>
-                      </span>
-                    </td>
+                    {props.userData.aadhar ? (
+                      <td className="px-5 py-5 bg-gray-800 ">
+                        <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                          ></span>
+                          <span className="relative">Verified</span>
+                        </span>
+                      </td>
+                    ) : (
+                      <td className="px-5 py-5 bg-gray-800 ">
+                        <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                          ></span>
+                          <span className="relative">Not Verified</span>
+                        </span>
+                      </td>
+                    )}
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/pan">
                         <button
@@ -121,4 +149,15 @@ const Upload = () => {
   );
 };
 
-export default Upload;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated,
+    userData: state.userData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Upload);

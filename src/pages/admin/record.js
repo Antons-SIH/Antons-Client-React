@@ -1,7 +1,7 @@
 import React from "react";
 import DataTable, { createTheme } from "react-data-table-component";
-import DataTableExtensions from "react-data-table-component-extensions";
-import "react-data-table-component-extensions/dist/index.css";
+// import DataTableExtensions from "react-data-table-component-extensions";
+// import "react-data-table-component-extensions/dist/index.css";
 import { columns, data } from "./data";
 createTheme(
   "solarized",
@@ -40,7 +40,7 @@ function Record() {
 
   return (
     <div className="p-8">
-      <DataTableExtensions {...tableData}>
+      {/* <DataTableExtensions {...tableData}> */}
         <DataTable
           columns={columns}
           data={data}
@@ -51,7 +51,7 @@ function Record() {
           highlightOnHover
           theme="solarized"
         />
-      </DataTableExtensions>
+      {/* </DataTableExtensions> */}
     </div>
   );
 }
