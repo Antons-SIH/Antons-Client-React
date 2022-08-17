@@ -9,9 +9,7 @@ import { login } from "../../store/actions";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = (props) => {
-
-  
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   const validate = Yup.object({
     email: Validators.email,
@@ -24,22 +22,21 @@ const Login = (props) => {
         email: "",
         password: "",
       }}
-      // validationSchema={validate}
+      validationSchema={validate}
 
       onSubmit={async (values) => {
         setLoading(true);
         Requests.login(values)
           .then((res) => {
-            console.log(res)
             localStorage.setItem("userinfo", res.data.data.token);
             props.login(res);
-            setLoading(false)
-            navigate("/")
+            setLoading(false);
+            navigate("/");
           })
           .catch((err) => {
-            setLoading(false)
+            setLoading(false);
             console.log(err);
-            
+            toast.error(err);
           });
       }}
     >
@@ -51,44 +48,44 @@ const Login = (props) => {
               className="p-4 space-y-4 mx-auto "
               onSubmit={formik.handleSubmit}
             >
-              <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"Email"}
-                name={"email"}
-                type={"email"}
-                onChange={formik.handleChange}
-              />
-              {formik.errors.email && (
-                <div className="text-red-500 font-bold">
-                  {formik.errors.email}
-                </div>
-              )}
-            </div>
-            <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"Password"}
-                name={"password"}
-                type={"password"}
-                onChange={formik.handleChange}
-              />
-              {/* {formik.errors.password && (
+              <div>
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Email"}
+                  name={"email"}
+                  type={"email"}
+                  onChange={formik.handleChange}
+                />
+                {formik.errors.email && (
+                  <div className="text-red-500 font-bold">
+                    {formik.errors.email}
+                  </div>
+                )}
+              </div>
+              <div>
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Password"}
+                  name={"password"}
+                  type={"password"}
+                  onChange={formik.handleChange}
+                />
+                {/* {formik.errors.password && (
                 <div className="text-red-500 font-bold">
                   {formik.errors.password}
                 </div>
               )} */}
-            </div>
-            <div className="flex items-baseline justify-center py-3">
-              <button
-                className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                type="button"
-                onClick={formik.handleSubmit}
-                disabled={loading?true:false}
-              >
-                {loading ?"Loading":"Login"}
-              </button>
-            </div>
+              </div>
+              <div className="flex items-baseline justify-center py-3">
+                <button
+                  className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                  type="button"
+                  onClick={formik.handleSubmit}
+                  disabled={loading ? true : false}
+                >
+                  {loading ? "Loading" : "Login"}
+                </button>
+              </div>
             </Form>
             <ToastContainer
               position="top-right"
@@ -101,7 +98,7 @@ const Login = (props) => {
               theme="dark"
             />
             <p className="link p-1 flex space-x-2 justify-center">
-              <div>Register for the event?</div>
+              <div>Dont have an account? </div>
               <Link to="/auth/register" className="text-cyan-500">
                 Register
               </Link>

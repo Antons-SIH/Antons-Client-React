@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFormik, Form, Field } from "formik";
+import {  Form, Field } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
@@ -11,11 +11,9 @@ import { login } from "../../store/actions";
 const college =[
   "Pune Institute Of Computer Technology",
   "Indian Institute of Technology",
-  "COllege of Engineerign Pune",
+  "College of Engineering Pune",
   "National Institute of Technology"
 ]
-
-
 
 
 const Register = (props) => {
