@@ -22,8 +22,6 @@ const Login = (props) => {
         email: "",
         password: "",
       }}
-      validationSchema={validate}
-
       onSubmit={async (values) => {
         setLoading(true);
         Requests.login(values)
@@ -35,8 +33,7 @@ const Login = (props) => {
           })
           .catch((err) => {
             setLoading(false);
-            console.log(err);
-            toast.error(err);
+            alert(err.response.data.error.message);
           });
       }}
     >

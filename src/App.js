@@ -28,7 +28,7 @@ function App(props) {
     }
   }, []);
   return (
-    <div className="bg-gray-900 h-screen text-white">
+    <div className="bg-gray-900 min-h-screen text-white">
       <NavBar />
       <Routes>
         {props.isAuthenticated ? (

@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Upload = (props) => {
-  useEffect(() => {
-    console.log(props.userData);
-  });
   return (
     <div className="px-32 sm-px-10">
       <div className="container mx-auto px-10 sm:px-8">

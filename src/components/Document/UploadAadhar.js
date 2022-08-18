@@ -8,7 +8,7 @@ const UploadAadhar = (props) => {
   const [fileNames, setFileNames] = useState([]);
   const [uploadStatus, setUploadStatus] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   const handleDrop = (acceptedFiles) => {
     setFileNames(acceptedFiles.map((file) => file.name));
     setFile(acceptedFiles[0]);
@@ -84,7 +84,7 @@ const UploadAadhar = (props) => {
               class="animate-spin h-5 w-5 mr-3 ..."
               viewBox="0 0 24 24"
             ></svg>
-            Uploading...
+            Processing...
           </button>
         </>
       )}
