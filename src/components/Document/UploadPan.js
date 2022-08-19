@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import { Requests } from "./../../utils/Index";
+import { Link } from "react-router-dom";
 
 const UploadPan = (props) => {
   const [file, setFile] = useState();
@@ -80,6 +81,17 @@ const UploadPan = (props) => {
         {loading ? "Uploading.." : "Upload"}
       </button>
       <div>{uploadStatus}</div>
+      <div className="py-5">
+        <Link to="/user/capture/pan"  >
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        
+        >
+          Take a Photo
+        </button>
+        </Link>
+        
+      </div>
     </div>
   );
 };

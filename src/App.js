@@ -14,6 +14,8 @@ import UploadPan from "./components/Document/UploadPan";
 import AdminRecord from "./pages/admin/adminrecord";
 import SuperRecord from "./pages/superadmin/superrecord";
 import Loader from "./components/Loader/Loader";
+import CaptureAadhar from "./components/CaptureImage/CaptureAadhar";
+import CapturePan from "./components/CaptureImage/CapturePan";
 
 function App(props) {
   const [isLoading, setisLoading] = useState(false);
@@ -49,6 +51,8 @@ function App(props) {
                       path="/user/upload/aadhar"
                       element={<UploadAadhar />}
                     />
+                    <Route path="/user/capture/aadhar"   element={<CaptureAadhar/>}  />
+                    <Route path="/user/capture/pan"   element={<CapturePan/>}  />
                     <Route path="/user/upload/pan" element={<UploadPan />} />
                   </>
                 ) : props.userData.user_type === "Admin" ? (
