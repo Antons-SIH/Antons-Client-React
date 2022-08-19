@@ -5,7 +5,6 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { columns } from "./data";
 import { customStyles } from "../../components/Table/CustomStyles";
-import FilterComponent from "../../components/Table/FilterComponent";
 
 createTheme(
   "solarized",
@@ -39,35 +38,10 @@ createTheme(
 
 function AdminRecord() {
   const [data, setData] = useState("");
-  const [isLoading, setisLoading] = useState(false);
   const tableData = {
     columns,
     data,
   };
-  const [filterText, setFilterText] = useState("");
-  const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-  const filteredItems = data.filter(
-    (item) =>
-      JSON.stringify(item).toLowerCase().indexOf(filterText.toLowerCase()) !==
-      -1
-  );
-
-  const subHeaderComponent = React.useMemo(() => {
-    const handleClear = () => {
-      if (filterText) {
-        setResetPaginationToggle(!resetPaginationToggle);
-        setFilterText("");
-      }
-    };
-
-    return (
-      <FilterComponent
-        onFilter={(e) => setFilterText(e.target.value)}
-        onClear={handleClear}
-        filterText={filterText}
-      />
-    );
-  }, [filterText, resetPaginationToggle]);
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
     if (token) {
@@ -90,17 +64,14 @@ function AdminRecord() {
         <div className="py-8">
           <DataTable
             columns={columns}
-            data={filteredItems}
+            data={data}
             noHeader
-            progressPending={isLoading}
             customStyles={customStyles}
             defaultSortField="id"
             defaultSortAsc={false}
             pagination
             highlightOnHover
             theme="solarized"
-            fixedHeader
-            fixedHeaderScrollHeight="700px"
           />
         </div>
       </DataTableExtensions>
