@@ -2,7 +2,7 @@ import axios from "axios";
 import { email } from "./validators";
 
 const backend = axios.create({
-  baseURL: `${process.env.REACT_APP_SIH_API}`,
+  baseURL: "https://aryanagrawal.in/api",
 });
 
 //auth
