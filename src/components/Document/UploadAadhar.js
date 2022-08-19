@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Dropzone, { useDropzone } from "react-dropzone";
 import { Requests } from "./../../utils/Index";
 import Processing from "../Processing/Processing";
+import { Link } from "react-router-dom";
 
 const thumbsContainer = {
   display: "flex",
@@ -124,6 +125,16 @@ const UploadAadhar = (props) => {
             <Processing />
           </>
         )}
+      <div className="py-5">
+        <Link to="/user/capture/aadhar"  >
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        
+        >
+          Take a Photo
+        </button>
+        </Link>
+        </div>
       </div>
     </div>
   );
