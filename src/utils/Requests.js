@@ -54,3 +54,9 @@ export const getSuperAdminDetails = (token) => {
     headers: { Authorization: `${token}` },
   });
 };
+
+// get colleges
+
+export const getColleges = (data) => {
+  return backend.get("/college", data);
+};
