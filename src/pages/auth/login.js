@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../store/actions";
 import { ToastContainer } from "react-toastify";
+import Bloader from "../../components/ButtonLoader/Bloader";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);
@@ -82,12 +83,14 @@ const Login = (props) => {
                 >
                  
                   
-                  {loading ? ( <> <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-white-600" role="status">
-                             <span class="visually-hidden">.</span>
-                    </div> Loading </>)
+                  {loading ? ( <> <Bloader />
+</>)
                    : "Login"}
                 </button>
               </div>
+             
+
+
             </Form>
             <ToastContainer
               position="top-right"

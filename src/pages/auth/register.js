@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Form, Field } from "formik";
+import { Form, Field } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
@@ -7,8 +7,9 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import { Requests } from "../../utils/Index";
 import { login } from "../../store/actions";
+import Bloader from "../../components/ButtonLoader/Bloader";
 
-const college =[
+const college = [
   "Pune Institute Of Computer Technology",
   "Indian Institute of Technology",
   "College of Engineering Pune",
@@ -18,7 +19,7 @@ const college =[
 
 const Register = (props) => {
   let navigate = useNavigate();
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const testSchema = Yup.object().shape({
     email: Yup.string().required("Enter Email"),
     password: Yup.string().required("Enter Password"),
@@ -28,21 +29,23 @@ const Register = (props) => {
     user_type: Yup.string().required("Enter College Name"),
     phone: Yup.string().required("Enter Phone Number"),
   });
+  const [clgval,setClgval] = useState(null);
   return (
     <Formik
       initialValues={{
         email: "",
         password: "",
-        first_name:"",
-        last_name:"",
-        college: "",
+        first_name: "",
+        last_name: "",
+        college: "Pune Institute Of Computer Technology",
         user_type: "",
         phone: "",
       }}
-       // validationSchema={validate}
+      // validationSchema={validate}
 
       onSubmit={async (values) => {
         setLoading(true);
+        console.log(values)
         Requests.register(values)
           .then((res) => {
             setLoading(false)
@@ -63,56 +66,56 @@ const Register = (props) => {
               onSubmit={formik.handleSubmit}
               validationSchema={testSchema}
             >
-               <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"First Name"}
-                name={"first_name"}
-                type={"first_name"}
-                onChange={formik.handleChange}
-              />
-           
-            </div>
-            <div >
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"Last Name"}
-                name={"last_name"}
-                type={"last_name"}
-                onChange={formik.handleChange}
-              />
-           
-            </div>
-             <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"email"}
-                name={"email"}
-                type={"email"}
-                onChange={formik.handleChange}
-              />
-              {formik.errors.email && (
-                <div className="text-red-500 font-bold">
-                  {formik.errors.email}
-                </div>
-              )}
-            </div>
-            <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"Password"}
-                name={"password"}
-                type={"password"}
-                onChange={formik.handleChange}
-              />
-              {formik.errors.password && (
-                <div className="text-red-500 font-bold">
-                  {formik.errors.password}
-                </div>
-              )}
-            </div>
-            <div className="">
-              <Field
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"First Name"}
+                  name={"first_name"}
+                  type={"first_name"}
+                  onChange={formik.handleChange}
+                />
+
+              </div>
+              <div >
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Last Name"}
+                  name={"last_name"}
+                  type={"last_name"}
+                  onChange={formik.handleChange}
+                />
+
+              </div>
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"email"}
+                  name={"email"}
+                  type={"email"}
+                  onChange={formik.handleChange}
+                />
+                {formik.errors.email && (
+                  <div className="text-red-500 font-bold">
+                    {formik.errors.email}
+                  </div>
+                )}
+              </div>
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Password"}
+                  name={"password"}
+                  type={"password"}
+                  onChange={formik.handleChange}
+                />
+                {formik.errors.password && (
+                  <div className="text-red-500 font-bold">
+                    {formik.errors.password}
+                  </div>
+                )}
+              </div>
+              <div className="">
+                <Field
                 className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 placeholder={"College Name"}
                 component ="select"
@@ -123,41 +126,42 @@ const Register = (props) => {
               >
                 {
                   college.map((val,id) => 
-                  <option value={val} >{val}</option>
+                  <option value={val}  >{val}</option>
                   )
                 }
                 </Field>
-            </div>
-     
-            <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"Phone number"}
-                name={"phone"}
-                type={"phone"}
-                onChange={formik.handleChange}
-              />
-            </div>
-            <div className="">
-              <Field
-                className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                placeholder={"user type"}
-                name={"user_type"}
-              type={"user_type"}
-                onChange={formik.handleChange}
-              />
-            </div>
-            <div className="flex items-baseline justify-center py-3">
-              <button
-                className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                type="button"
-                onClick={formik.handleSubmit}
-                disabled={loading?true:false}
-              >
-               
-                {loading ?"Loading":"Register"}
-              </button>
-            </div>
+                
+              </div>
+
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Phone number"}
+                  name={"phone"}
+                  type={"phone"}
+                  onChange={formik.handleChange}
+                />
+              </div>
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"user type"}
+                  name={"user_type"}
+                  type={"user_type"}
+                  onChange={formik.handleChange}
+                />
+              </div>
+              <div className="flex items-baseline justify-center py-3">
+                <button
+                  className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                  type="button"
+                  onClick={formik.handleSubmit}
+                  disabled={loading ? true : false}
+                >
+
+                  {loading ? (<><Bloader /></>) : "Register"}
+                </button>
+              </div>
             </Form>
             {/* <ToastContainer
               position="top-right"
