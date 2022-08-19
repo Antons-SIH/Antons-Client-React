@@ -115,7 +115,7 @@ const Profile = (props) => {
                       />
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
-                      Verified On :{" "}
+                      Verified On :
                       {props.userData.pan_date === "None"
                         ? "Not yet Verified"
                         : props.userData.pan_date.substring(0, 10)}
@@ -180,7 +180,7 @@ const Profile = (props) => {
                       />
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
-                      Verified On :{" "}
+                      Verified On :
                       {props.userData.seeded_date === "None"
                         ? "Not yet Verified"
                         : props.userData.seeded_date.substring(0, 10)}
@@ -196,16 +196,7 @@ const Profile = (props) => {
                         Remark - {props.userData.seeded_remark}
                       </li>
                     </ul>
-                    <div id="verify" className="w-full mt-10 px-6">
-                      <a
-                        href="/user/upload"
-                        className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
-                      >
-                        {props.userData.seeded_bank_acc
-                          ? "verify again"
-                          : " verify"}
-                      </a>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

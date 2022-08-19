@@ -45,7 +45,7 @@ const Upload = (props) => {
                         <div className="ml-3">
                           <p className=" whitespace-no-wrap">Aadhar</p>
                           <p className="text-gray-400 whitespace-no-wrap">
-                            -----
+                            {props.userData.aadhar}
                           </p>
                         </div>
                       </div>
@@ -57,7 +57,7 @@ const Upload = (props) => {
                         <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                           ></span>
                           <span className="relative">Verified</span>
                         </span>
@@ -97,19 +97,19 @@ const Upload = (props) => {
                         <div className="ml-3">
                           <p className=" whitespace-no-wrap">Pan Card</p>
                           <p className="text-gray-400 whitespace-no-wrap">
-                            XXXX30
+                            {props.userData.pan}
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
-                    {props.userData.aadhar ? (
+                    {props.userData.pan ? (
                       <td className="px-5 py-5 bg-gray-800 ">
                         <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                           ></span>
                           <span className="relative">Verified</span>
                         </span>
