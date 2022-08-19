@@ -8,6 +8,7 @@ const UploadPan = (props) => {
   const [fileNames, setFileNames] = useState([]);
   const [uploadStatus, setUploadStatus] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleDrop = (acceptedFiles) => {
     setFileNames(acceptedFiles.map((file) => file.name));
     setFile(acceptedFiles[0]);
@@ -28,7 +29,6 @@ const UploadPan = (props) => {
     }
     setLoading(false);
   };
-
   return (
     <div className="p-10">
       <Dropzone
@@ -71,23 +71,14 @@ const UploadPan = (props) => {
           ))}
         </ul>
       </div>
-      {!loading ? (
-        <>
-          <button className="btn" onClick={handleUpload}>
-            Upload!
-          </button>
-        </>
-      ) : (
-        <>
-          <button type="button" class="bg-indigo-500 ..." disabled>
-            <svg
-              class="animate-spin h-5 w-5 mr-3 ..."
-              viewBox="0 0 24 24"
-            ></svg>
-            Uploading...
-          </button>
-        </>
-      )}
+      <button
+        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+        type="button"
+        onClick={handleUpload}
+        disabled={loading ? true : false}
+      >
+        {loading ? "Uploading.." : "Upload"}
+      </button>
       <div>{uploadStatus}</div>
     </div>
   );

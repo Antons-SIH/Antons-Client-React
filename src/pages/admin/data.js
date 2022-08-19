@@ -1,70 +1,47 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export const columns = [
   {
-    name: "Id",
-    selector: "id",
-    sortable: true,
-  },
-  {
     name: "Name",
-    selector: "name",
+    selector: (row) => row.email,
+    sortable: true,
+    cell: (row) => (
+      <div>
+        {row.name} - {row.user_type}
+        <br />
+        <i>{row.email}</i>
+      </div>
+    ),
+  },
+  {
+    name: "Aadhar",
+    selector: (row) => row.aadhar_remark,
     sortable: true,
   },
   {
-    name: "Document Verified",
-    selector: "document",
-    sortable: true,
-    cell: (d) => <span>{d.document.join(", ")}</span>,
-  },
-  {
-    name: "Year",
-    selector: "year",
+    name: "Pan Card",
+    selector: (row) => row.pan_remark,
     sortable: true,
   },
-];
-
-export const data = [
   {
-    id: 1,
-    year: "1988",
-    document: ["Aadhar", "Pan Card"],
-    name: "Aadhar",
+    name: "Bank Details",
+    selector: (row) => row.seeded_remark,
+    sortable: true,
   },
-  {
-    id: 2,
-    year: "1984",
-    document: ["Aadhar"],
-    name: "Aadhar",
-  },
-  {
-    id: 3,
-    year: "1994",
-    document: ["Aadhar", "Pan Card"],
-    name: "Pan Card",
-  },
-  {
-    id: 4,
-    year: "1986",
-    document: ["Aadhar", "Pan Card", "Bank"],
-    name: "Pan Card",
-  },
-  {
-    id: 5,
-    year: "2008",
-    document: ["Pan Card"],
-    name: "Aadhar",
-  },
-  {
-    id: 6,
-    year: "2007",
-    document: ["Aadhar", "Pan Card"],
-    name: "Aadhar",
-  },
-  {
-    id: 7,
-    year: "2002",
-    document: ["Aadhar", "Pan Card"],
-    name: "Pan Card",
-  },
+  // {
+  //   name: "View",
+  //   button: true,
+  //   cell: (row) => (
+  //     <div className="text-center">
+  //       <Link to={`${row._id}`}>
+  //         <button
+  //           type="button"
+  //           className="text-white bg-gray-800 hover:bg-gray-900  focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-800 dark:border-gray-700"
+  //         >
+  //           View
+  //         </button>
+  //       </Link>
+  //     </div>
+  //   ),
+  // },
 ];

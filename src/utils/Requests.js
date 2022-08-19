@@ -41,6 +41,8 @@ export const uploadPan = (file, email) => {
 
 // admin
 
-export const getAdminDetails = (adminData) => {
-  return backend.get("/details/admin", adminData);
+export const getAdminDetails = (token) => {
+  return backend.get("/details/admin", {
+    headers: { Authorization: `${token}` },
+  });
 };

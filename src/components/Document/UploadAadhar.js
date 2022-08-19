@@ -33,9 +33,9 @@ const UploadAadhar = (props) => {
     <div className="p-10">
       <Dropzone
         onDrop={handleDrop}
-        accept="image/*"
+        accept="image/jpeg, image/png, image/jpg"
         minSize={1024}
-        maxSize={3072000}
+        maxSize={3072000} //till 300kb allowed
       >
         {({
           getRootProps,
@@ -67,27 +67,20 @@ const UploadAadhar = (props) => {
         <strong>Files:</strong>
         <ul>
           {fileNames.map((fileName) => (
-            <li key={fileName}>{fileName}</li>
+            <li key={fileName}>
+              {fileName ? fileName : "Size Excedded Given Limit"}
+            </li>
           ))}
         </ul>
       </div>
-      {!loading ? (
-        <>
-          <button className="btn" onClick={handleUpload}>
-            Upload!
-          </button>
-        </>
-      ) : (
-        <>
-          <button type="button" class="bg-indigo-500 ..." disabled>
-            <svg
-              class="animate-spin h-5 w-5 mr-3 ..."
-              viewBox="0 0 24 24"
-            ></svg>
-            Processing...
-          </button>
-        </>
-      )}
+      <button
+        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+        type="button"
+        onClick={handleUpload}
+        disabled={loading ? true : false}
+      >
+        {loading ? "Uploading.." : "Upload"}
+      </button>
       <div>{uploadStatus}</div>
     </div>
   );
