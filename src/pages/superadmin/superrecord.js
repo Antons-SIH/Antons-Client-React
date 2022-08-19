@@ -36,7 +36,7 @@ createTheme(
   "dark"
 );
 
-function Record() {
+function SuperRecord() {
   const [data, setData] = useState("");
   const tableData = {
     columns,
@@ -45,7 +45,7 @@ function Record() {
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
     if (token) {
-      Requests.getAdminDetails(token)
+      Requests.getSuperAdminDetails(token)
         .then((res) => {
           setData(res.data.data);
           console.log(res.data.data);
@@ -79,4 +79,4 @@ function Record() {
   );
 }
 
-export default Record;
+export default SuperRecord;

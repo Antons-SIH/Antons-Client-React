@@ -11,7 +11,8 @@ import Register from "./pages/auth/register";
 import { connect } from "react-redux";
 import UploadAadhar from "./components/Document/UploadAadhar";
 import UploadPan from "./components/Document/UploadPan";
-import Record from "./pages/admin/record";
+import AdminRecord from "./pages/admin/adminrecord";
+import SuperRecord from "./pages/superadmin/superrecord";
 
 function App(props) {
   useEffect(() => {
@@ -40,9 +41,13 @@ function App(props) {
                 <Route path="/user/upload/aadhar" element={<UploadAadhar />} />
                 <Route path="/user/upload/pan" element={<UploadPan />} />
               </>
+            ) : props.userData.user_type === "Admin" ? (
+              <>
+                <Route path="/admin/view" element={<AdminRecord />} />
+              </>
             ) : (
               <>
-                <Route path="/admin/view" element={<Record />} />
+                <Route path="/superadmin/view" element={<SuperRecord />} />
               </>
             )}
           </>

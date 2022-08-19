@@ -46,3 +46,11 @@ export const getAdminDetails = (token) => {
     headers: { Authorization: `${token}` },
   });
 };
+
+// super admin
+
+export const getSuperAdminDetails = (token) => {
+  return backend.get("/details/super", {
+    headers: { Authorization: `${token}` },
+  });
+};

@@ -6,7 +6,7 @@ import { Requests, Validators } from "../../utils/Index";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../store/actions";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);

@@ -28,9 +28,16 @@ const LandingPage = (props) => {
                   Welcome
                 </h1>
                 {props.isAuthenticated ? (
-                  <h1 className="text-white font-semibold text-5xl pt-12">
-                    {props.userData.name}
-                  </h1>
+                  <div className="text-xl">
+                    {props.userData.user_type == "User"
+                      ? "User"
+                      : props.userData.user_type == "Admin"
+                      ? "Admin"
+                      : "Super Admin"}
+                    <h1 className="text-white font-semibold text-5xl pt-8">
+                      {props.userData.name}
+                    </h1>
+                  </div>
                 ) : (
                   <p className="mt-4 text-lg text-gray-300">
                     <Link to="/auth/login">
