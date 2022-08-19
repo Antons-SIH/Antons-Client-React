@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Requests } from "./utils/Index";
 import { login } from "./store/actions";
 import LandingPage from "./pages/home";
@@ -13,53 +13,67 @@ import UploadAadhar from "./components/Document/UploadAadhar";
 import UploadPan from "./components/Document/UploadPan";
 import AdminRecord from "./pages/admin/adminrecord";
 import SuperRecord from "./pages/superadmin/superrecord";
+import Loader from "./components/Loader/Loader";
 
 function App(props) {
+  const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
     if (token) {
+      setisLoading(true);
       Requests.getUserByToken(token)
         .then((res) => {
           props.login(res);
+          setisLoading(false);
         })
         .catch((error) => {
           alert("Please Login");
+          setisLoading(false);
         });
     } else {
     }
   }, []);
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
-      <NavBar />
-      <Routes>
-        {props.isAuthenticated ? (
-          <>
-            {props.userData.user_type === "User" ? (
+    <>
+      {!isLoading ? (
+        <div className="bg-gray-900 min-h-screen text-white">
+          <NavBar />
+          <Routes>
+            {props.isAuthenticated ? (
               <>
-                <Route path="/user/profile" element={<Profile />} />
-                <Route path="/user/upload" element={<Upload />} />
-                <Route path="/user/upload/aadhar" element={<UploadAadhar />} />
-                <Route path="/user/upload/pan" element={<UploadPan />} />
-              </>
-            ) : props.userData.user_type === "Admin" ? (
-              <>
-                <Route path="/admin/view" element={<AdminRecord />} />
+                {props.userData.user_type === "User" ? (
+                  <>
+                    <Route path="/user/profile" element={<Profile />} />
+                    <Route path="/user/upload" element={<Upload />} />
+                    <Route
+                      path="/user/upload/aadhar"
+                      element={<UploadAadhar />}
+                    />
+                    <Route path="/user/upload/pan" element={<UploadPan />} />
+                  </>
+                ) : props.userData.user_type === "Admin" ? (
+                  <>
+                    <Route path="/admin/view" element={<AdminRecord />} />
+                  </>
+                ) : (
+                  <>
+                    <Route path="/superadmin/view" element={<SuperRecord />} />
+                  </>
+                )}
               </>
             ) : (
               <>
-                <Route path="/superadmin/view" element={<SuperRecord />} />
+                <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth/register" element={<Register />} />
               </>
             )}
-          </>
-        ) : (
-          <>
-            <Route path="/auth/login" element={<Login />} />
-            <Route path="/auth/register" element={<Register />} />
-          </>
-        )}
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
-    </div>
+            <Route path="/" element={<LandingPage />} />
+          </Routes>
+        </div>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }
 const mapStateToProps = (state) => {
