@@ -39,8 +39,10 @@ const LandingPage = (props) => {
                 </h1>
                 {props.isAuthenticated ? (
                   <div className="text-xl">
-                    {props.userData.user_type == "User"
-                      ? "User"
+                    {props.userData.user_type === "Student" ||
+                    props.userData.user_type === "Teacher" ||
+                    props.userData.user_type === "User"
+                      ? ""
                       : props.userData.user_type == "Admin"
                       ? "Admin"
                       : "Super Admin"}

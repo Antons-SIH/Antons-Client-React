@@ -28,7 +28,9 @@ const NavBar = (props) => {
 
         {props.isAuthenticated ? (
           <>
-            {props.userData.user_type == "User" ? (
+            {props.userData.user_type === "Student" ||
+            props.userData.user_type === "Teacher" ||
+            props.userData.user_type === "User" ? (
               <ul className="menu border-b md:border-none px-2 flex justify-end list-reset m-0 w-full md:w-auto">
                 <li className=" md:border-none px-2 hover:text-gray-400">
                   <Link

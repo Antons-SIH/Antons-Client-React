@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 export const columns = [
   {
     name: "Name",
-    selector: (row) => row.email,
+    selector: (row) => row.name,
     sortable: true,
-    cell: (row) => (
-      <div>
-        {row.name} - {row.user_type}
-        <br />
-        <i>{row.email}</i>
-      </div>
-    ),
+  },
+  {
+    name: "User Type",
+    selector: (row) => row.user_type,
+    sortable: true,
   },
   {
     name: "Aadhar",
