@@ -62,19 +62,17 @@ function SuperRecord() {
   return (
     <div className="p-8 px-12">
       <DataTableExtensions {...tableData}>
-        <div className="py-8">
-          <DataTable
-            columns={columns}
-            data={data}
-            noHeader
-            customStyles={customStyles}
-            defaultSortField="id"
-            defaultSortAsc={false}
-            pagination
-            highlightOnHover
-            theme="solarized"
-          />
-        </div>
+        <DataTable
+          columns={columns}
+          data={data}
+          noHeader
+          customStyles={customStyles}
+          defaultSortField="id"
+          defaultSortAsc={false}
+          pagination
+          highlightOnHover
+          theme="solarized"
+        />
       </DataTableExtensions>
     </div>
   );

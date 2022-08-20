@@ -56,7 +56,9 @@ function App(props) {
           <Routes>
             {props.isAuthenticated ? (
               <>
-                {props.userData.user_type === "User" ? (
+                {props.userData.user_type === "Student" ||
+                props.userData.user_type === "Teacher" ||
+                props.userData.user_type === "User" ? (
                   <>
                     <Route path="/user/profile" element={<Profile />} />
                     <Route path="/user/upload" element={<Upload />} />
@@ -94,7 +96,7 @@ function App(props) {
       ) : (
         <Loader />
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }

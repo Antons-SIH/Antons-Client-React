@@ -10,11 +10,15 @@ import { login } from "../../store/actions";
 import { toast } from "react-toastify";
 
 const college = [
-  "Pune Institute Of Computer Technology",
+  "G.H.RAISONI COLLEGE OF ENGINEERING & MANAGEMENT",
+  "SYMBIOSIS INSTITUTE OF TECHNOLOGY",
+  "DR.D.Y.PATL COLLEGE OF ENGINEERING",
+  "SCTR'S Pune Institute Of Computer Technology",
   "Indian Institute of Technology",
   "College of Engineering Pune",
   "National Institute of Technology",
 ];
+const user_type = ["Student", "Teacher", "Admin", "Super"];
 
 const Register = (props) => {
   const [data, setData] = useState("");
@@ -39,8 +43,8 @@ const Register = (props) => {
         password: "",
         first_name: "",
         last_name: "",
-        college: "Pune Institute Of Computer Technology",
-        user_type: "",
+        college: "SCTR'S Pune Institute Of Computer Technology",
+        user_type: "Student",
         phone: "",
       }}
       onSubmit={async (values) => {
@@ -139,10 +143,15 @@ const Register = (props) => {
                 <Field
                   className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   placeholder={"user type"}
+                  component="select"
                   name={"user_type"}
                   type={"user_type"}
                   onChange={formik.handleChange}
-                />
+                >
+                  {user_type.map((val, id) => (
+                    <option value={val}>{val}</option>
+                  ))}
+                </Field>
               </div>
               <div className="flex items-baseline justify-center py-3">
                 <button
