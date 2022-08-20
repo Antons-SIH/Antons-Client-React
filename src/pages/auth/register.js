@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { Formik } from "formik";
 import { Requests } from "../../utils/Index";
 import { login } from "../../store/actions";
-import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const college = [
   "Pune Institute Of Computer Technology",
@@ -32,7 +32,6 @@ const Register = (props) => {
   });
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
   return (
     <Formik
       initialValues={{
@@ -40,7 +39,7 @@ const Register = (props) => {
         password: "",
         first_name: "",
         last_name: "",
-        college: "",
+        college: "Pune Institute Of Computer Technology",
         user_type: "",
         phone: "",
       }}
@@ -53,6 +52,7 @@ const Register = (props) => {
           })
           .catch((err) => {
             setLoading(false);
+            toast.warn(err);
             console.log(err);
           });
       }}
@@ -120,7 +120,9 @@ const Register = (props) => {
                   type={"college"}
                   onChange={formik.handleChange}
                 >
-                  {/* <option>{data[0]}</option> */}
+                  {college.map((val, id) => (
+                    <option value={val}>{val}</option>
+                  ))}
                 </Field>
               </div>
 
@@ -153,16 +155,7 @@ const Register = (props) => {
                 </button>
               </div>
             </Form>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
+
             <div className="link p-1 flex space-x-2 justify-center text-white">
               <div>Dont have an account ? </div>
               <Link to="/auth/login" className="text-cyan-500">

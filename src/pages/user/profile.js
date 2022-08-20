@@ -5,7 +5,7 @@ const Profile = (props) => {
   return (
     <div>
       <div className="antialiased w-full h-full text-gray-400 font-inter p-10">
-        <div className="container px-4 mx-auto">
+        <div className=" px-4 mx-auto">
           <div>
             <div id="title" className="text-center my-10">
               <h1 className="font-bold text-4xl text-white">

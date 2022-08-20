@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Upload from "./pages/user/upload";
 import Register from "./pages/auth/register";
 import { connect } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import UploadAadhar from "./components/Document/UploadAadhar";
 import UploadPan from "./components/Document/UploadPan";
 import AdminRecord from "./pages/admin/adminrecord";
@@ -16,6 +17,8 @@ import SuperRecord from "./pages/superadmin/superrecord";
 import Loader from "./components/Loader/Loader";
 import CaptureAadhar from "./components/CaptureImage/CaptureAadhar";
 import CapturePan from "./components/CaptureImage/CapturePan";
+import Team from "./pages/team/team";
+import Footer from "./components/Footer/Footer";
 
 function App(props) {
   const [isLoading, setisLoading] = useState(false);
@@ -29,7 +32,7 @@ function App(props) {
           setisLoading(false);
         })
         .catch((error) => {
-          alert("Please Login");
+          toast.error(error);
           setisLoading(false);
         });
     } else {
@@ -40,6 +43,16 @@ function App(props) {
       {!isLoading ? (
         <div className="bg-gray-900 min-h-screen text-white">
           <NavBar />
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
           <Routes>
             {props.isAuthenticated ? (
               <>
@@ -51,8 +64,11 @@ function App(props) {
                       path="/user/upload/aadhar"
                       element={<UploadAadhar />}
                     />
-                    <Route path="/user/capture/aadhar"   element={<CaptureAadhar/>}  />
-                    <Route path="/user/capture/pan"   element={<CapturePan/>}  />
+                    <Route
+                      path="/user/capture/aadhar"
+                      element={<CaptureAadhar />}
+                    />
+                    <Route path="/user/capture/pan" element={<CapturePan />} />
                     <Route path="/user/upload/pan" element={<UploadPan />} />
                   </>
                 ) : props.userData.user_type === "Admin" ? (
@@ -72,11 +88,13 @@ function App(props) {
               </>
             )}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/team" element={<Team />} />
           </Routes>
         </div>
       ) : (
         <Loader />
       )}
+      <Footer/>
     </>
   );
 }

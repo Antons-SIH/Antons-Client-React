@@ -1,45 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import Dropzone, { useDropzone } from "react-dropzone";
+import Dropzone from "react-dropzone";
 import { Requests } from "./../../utils/Index";
 import Processing from "../Processing/Processing";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import Bloader from "../ButtonLoader/Bloader";
-=======
+import { toast } from "react-toastify";
 
-const thumbsContainer = {
-  display: "flex",
-  flexDirection: "row",
-  flexWrap: "wrap",
-  marginTop: 16,
-};
-
-const thumb = {
-  display: "inline-flex",
-  borderRadius: 2,
-  border: "1px solid #eaeaea",
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: "border-box",
-};
-
-const thumbInner = {
-  display: "flex",
-  minWidth: 0,
-  overflow: "hidden",
-};
-
-const img = {
-  display: "block",
-  width: "auto",
-  height: "100%",
-};
-
->>>>>>> f90a0b88084c970131accb9401363af14f90e33d
 const UploadAadhar = (props) => {
   const [file, setFile] = useState();
   const [error, setError] = useState();
@@ -61,6 +28,7 @@ const UploadAadhar = (props) => {
       setLoading(true);
       try {
         const res = await Requests.uploadAadhar(formData);
+        toast.success(res.data.data);
         setUploadStatus(res.data.data);
         setLoading(false);
       } catch (ex) {
@@ -124,11 +92,7 @@ const UploadAadhar = (props) => {
         onClick={handleUpload}
         disabled={loading ? true : false}
       >
-<<<<<<< HEAD
-        {loading ? (<Bloader / >) : "Upload"}
-=======
-        {loading ? <>Uploading..</> : "Upload"}
->>>>>>> f90a0b88084c970131accb9401363af14f90e33d
+        {loading ? <Bloader /> : "Upload"}
       </button>
       <div>
         {error}
@@ -136,7 +100,7 @@ const UploadAadhar = (props) => {
           ""
         ) : (
           <>
-            {uploadStatus}
+            Remark: {uploadStatus}
             <Processing />
           </>
         )}

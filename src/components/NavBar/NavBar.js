@@ -2,10 +2,12 @@ import React from "react";
 import { login, logout } from "../../store/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NavBar = (props) => {
   function logout() {
     localStorage.removeItem("userinfo");
+    toast.success("Logged out");
     props.logout();
   }
   return (

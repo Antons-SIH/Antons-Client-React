@@ -5,6 +5,7 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { columns } from "./data";
 import { customStyles } from "../../components/Table/CustomStyles";
+import { toast } from "react-toastify";
 
 createTheme(
   "solarized",
@@ -52,7 +53,7 @@ function SuperRecord() {
           console.log(res.data.data[0].user_type);
         })
         .catch((error) => {
-          alert(error);
+          toast.error(error);
         });
     } else {
     }

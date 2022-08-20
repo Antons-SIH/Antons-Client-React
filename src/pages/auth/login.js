@@ -6,7 +6,7 @@ import { Requests, Validators } from "../../utils/Index";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../store/actions";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import Bloader from "../../components/ButtonLoader/Bloader";
 
 const Login = (props) => {
@@ -24,7 +24,9 @@ const Login = (props) => {
         password: "",
       }}
       onSubmit={async (values) => {
+        toast.success("Logged In");
         setLoading(true);
+
         Requests.login(values)
           .then((res) => {
             localStorage.setItem("userinfo", res.data.data.token);
@@ -34,7 +36,8 @@ const Login = (props) => {
           })
           .catch((err) => {
             setLoading(false);
-            alert(err.response.data.error.message);
+            console.log(err.response.data.error.message);
+            toast.error(err.response.data.error.message);
           });
       }}
     >
@@ -81,27 +84,17 @@ const Login = (props) => {
                   onClick={formik.handleSubmit}
                   disabled={loading ? true : false}
                 >
-                 
-                  
-                  {loading ? ( <> <Bloader />
-</>)
-                   : "Login"}
+                  {loading ? (
+                    <>
+                      {" "}
+                      <Bloader />
+                    </>
+                  ) : (
+                    "Login"
+                  )}
                 </button>
               </div>
-             
-
-
             </Form>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
             <p className="link p-1 flex space-x-2 justify-center">
               <div>Dont have an account? </div>
               <Link to="/auth/register" className="text-cyan-500">

@@ -1,5 +1,5 @@
 import "./Processing.css";
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const LoadingBar = (props) => {
@@ -59,7 +59,7 @@ const fakeLoadingTask = (ms, progressAmount) => {
 const requirements = [
   {
     load: async () => {
-      return fakeLoadingTask(2000, 30);
+      return fakeLoadingTask(3500, 30);
     },
   },
   {
@@ -110,7 +110,7 @@ const Processing = (props) => {
             to="/user/profile"
             className="text-blue-300 hover:text-blue-500"
           >
-            View
+            View Status
           </Link>
         </>
       )}

@@ -8,6 +8,7 @@ export const login = (userData) => {
 		type: LOGIN,
 		payload: userData
 	};
+	
 }
 
 // Logout / Clear Profile

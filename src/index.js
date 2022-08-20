@@ -4,7 +4,7 @@ import "../src/styles/index.css";
 import "../src/styles/App.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-
+import 'react-toastify/dist/ReactToastify.min.css';
 //Redux
 import { Provider } from "react-redux";
 import store from "./store/store";

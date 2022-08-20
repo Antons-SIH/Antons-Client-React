@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import UploadDocument from "../../components/Document/UploadAadhar";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Upload = (props) => {
   return (
     <div className="px-32 sm-px-10">
-      <div className="container mx-auto px-10 sm:px-8">
+      <div className=" mx-auto px-10 sm:px-8">
         <div className="py-8">
           <div>
             <h2 className="text-2xl font-semibold leading-tight">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const columns = [
   {
     name: "Name",
-    selector: (row) => row.email,
+    selector: (row) => row.name,
     sortable: true,
     cell: (row) => (
       <div>

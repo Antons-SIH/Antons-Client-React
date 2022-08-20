@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
-
+import { ToastContainer, toast } from "react-toastify";
 const LandingPage = (props) => {
   const styling = {
     backgroundImage: `url('https://www.ameyo.com/wp-content/uploads/2021/01/Video-KYC-for-NBFCs.png')`,
@@ -10,6 +10,16 @@ const LandingPage = (props) => {
   };
   return (
     <div className="bg-gray-900">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="relative pt-16 pb-32 flex content-center items-center justify-center ">
         <div
           className="absolute top-0 w-full h-full bg-center bg-cover"
@@ -23,8 +33,8 @@ const LandingPage = (props) => {
         <div className="container relative mx-auto">
           <div className="items-center flex flex-wrap">
             <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-              <div className="pr-12">
-                <h1 className="text-white font-semibold text-5xl pt-12">
+              <div>
+                <h1 className="text-white font-semibold text-5xl pt-12 flex justify-center">
                   Welcome
                 </h1>
                 {props.isAuthenticated ? (
@@ -34,7 +44,7 @@ const LandingPage = (props) => {
                       : props.userData.user_type == "Admin"
                       ? "Admin"
                       : "Super Admin"}
-                    <h1 className="text-white font-semibold text-5xl pt-8">
+                    <h1 className="text-white text-3xl pt-8">
                       {props.userData.name}
                     </h1>
                   </div>

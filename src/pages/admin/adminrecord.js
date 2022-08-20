@@ -5,6 +5,8 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { columns } from "./data";
 import { customStyles } from "../../components/Table/CustomStyles";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 createTheme(
   "solarized",
@@ -38,9 +40,35 @@ createTheme(
 
 function AdminRecord() {
   const [data, setData] = useState("");
-  const tableData = {
-    columns,
-    data,
+  const exportPDF = () => {
+    const unit = "pt";
+    const size = "A4"; // Use A1, A2, A3 or A4
+    const orientation = "portrait"; // portrait or landscape
+
+    const marginLeft = 40;
+    const doc = new jsPDF(orientation, unit, size);
+
+    doc.setFontSize(15);
+
+    const title = "Admin Record";
+    const headers = [["Name", "Aadhar", "Pan Card", "Bank Details"]];
+
+    const data = data.map((elt) => [
+      elt.name,
+      elt.aadhar_remark,
+      elt.pan_remark,
+      elt.seeded_remark,
+    ]);
+
+    let content = {
+      startY: 50,
+      head: headers,
+      body: data,
+    };
+
+    doc.text(title, marginLeft, 40);
+    doc.autoTable(content);
+    doc.save("report.pdf");
   };
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
@@ -57,23 +85,26 @@ function AdminRecord() {
     } else {
     }
   }, []);
+  const tableData = {
+    columns,
+    data,
+  };
 
   return (
     <div className="p-8 px-12">
+      <button onClick={() => exportPDF()}>Generate Report</button>
       <DataTableExtensions {...tableData}>
-        <div className="py-8">
-          <DataTable
-            columns={columns}
-            data={data}
-            noHeader
-            customStyles={customStyles}
-            defaultSortField="id"
-            defaultSortAsc={false}
-            pagination
-            highlightOnHover
-            theme="solarized"
-          />
-        </div>
+        <DataTable
+          columns={columns}
+          data={data}
+          noHeader
+          customStyles={customStyles}
+          defaultSortField="Name"
+          defaultSortAsc={false}
+          pagination
+          highlightOnHover
+          theme="solarized"
+        />
       </DataTableExtensions>
     </div>
   );
