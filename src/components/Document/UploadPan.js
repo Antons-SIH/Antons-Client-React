@@ -34,7 +34,8 @@ const UploadPan = (props) => {
   };
   return (
     <div className="p-10">
-      <div className="flex flex-wrap border-solid border-2 border-white-600 mb-5 p-4 rounded text-white">
+      <div className="flex flex-wrap justify-around  border-solid border-2 border-white-600 mb-5">
+      <div className="flex flex-wrap  mb-5 p-4 rounded text-white">
         <ul>
           <li>1. The image should be horizontal</li>
           <li>2. Image should not be blur</li>
@@ -46,8 +47,10 @@ const UploadPan = (props) => {
         </ul>
       </div>
       
-      <div className="flex flex-wrap border-solid border-2 border-white-600 mb-5 p-4 rounded text-white justify-center f">
+      <div className="flex flex-wrap mb-5  p-4 rounded text-white justify-center f">
+    
        <img src={Pansample} className="h-56 w-96" />
+      </div>
       </div>
       <Dropzone
         onDrop={handleDrop}

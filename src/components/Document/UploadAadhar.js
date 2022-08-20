@@ -79,8 +79,8 @@ const UploadAadhar = (props) => {
   
   return (
     <div className="p-10">
-
-      <div className="flex flex-wrap border-solid border-2 border-white-600 mb-5 p-4 rounded text-white">
+      <div className="flex flex-wrap justify-around  border-solid border-2 border-white-600 mb-5">
+      <div className="flex flex-wrap  mb-5 p-4 rounded text-white">
         <ul>
           <li>1. The image should be horizontal</li>
           <li>2. Image should not be blur</li>
@@ -92,9 +92,10 @@ const UploadAadhar = (props) => {
         </ul>
       </div>
       
-      <div className="flex flex-wrap border-solid border-2 border-white-600 mb-5 p-4 rounded text-white justify-center f">
+      <div className="flex flex-wrap mb-5  p-4 rounded text-white justify-center f">
     
        <img src={Aadharsample} className="h-56 w-96" />
+      </div>
       </div>
       <Dropzone
         onDrop={handleDrop}
@@ -138,9 +139,9 @@ const UploadAadhar = (props) => {
           ))}
         </ul>
       </div>
-    
+      
       <button
-        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
         type="button"
         onClick={handleUpload}
         disabled={loading ? true : false}
@@ -156,17 +157,9 @@ const UploadAadhar = (props) => {
             <Processing />
           </>
         )}
-      <div className="py-5">
-        <Link to="/user/capture/aadhar"  >
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        
-        >
-          Take a Photo
-        </button>
-        </Link>
-        </div>
+     
       </div>
+     
     </div>
   );
 };

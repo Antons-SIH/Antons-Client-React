@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 const videoContraints = {
     width:300,
     height:150,
-    facingMode:"user"
+    facingMode: { exact: "environment" }
 }
 
 function dataURLtoFile(dataurl, filename) {
