@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import { Requests } from "./../../utils/Index";
 import { Link } from "react-router-dom";
+import Bloader from "../ButtonLoader/Bloader";
 
 const UploadPan = (props) => {
   const [file, setFile] = useState();
@@ -78,7 +79,7 @@ const UploadPan = (props) => {
         onClick={handleUpload}
         disabled={loading ? true : false}
       >
-        {loading ? "Uploading.." : "Upload"}
+        {loading ? (<Bloader />): "Upload"}
       </button>
       <div>{uploadStatus}</div>
       <div className="py-5">

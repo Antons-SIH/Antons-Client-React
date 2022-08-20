@@ -4,6 +4,9 @@ import Dropzone, { useDropzone } from "react-dropzone";
 import { Requests } from "./../../utils/Index";
 import Processing from "../Processing/Processing";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+import Bloader from "../ButtonLoader/Bloader";
+=======
 
 const thumbsContainer = {
   display: "flex",
@@ -36,6 +39,7 @@ const img = {
   height: "100%",
 };
 
+>>>>>>> f90a0b88084c970131accb9401363af14f90e33d
 const UploadAadhar = (props) => {
   const [file, setFile] = useState();
   const [error, setError] = useState();
@@ -120,7 +124,11 @@ const UploadAadhar = (props) => {
         onClick={handleUpload}
         disabled={loading ? true : false}
       >
+<<<<<<< HEAD
+        {loading ? (<Bloader / >) : "Upload"}
+=======
         {loading ? <>Uploading..</> : "Upload"}
+>>>>>>> f90a0b88084c970131accb9401363af14f90e33d
       </button>
       <div>
         {error}

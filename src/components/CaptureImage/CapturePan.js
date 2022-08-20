@@ -3,6 +3,7 @@ import { useRef,useCallback,useEffect } from 'react'
 import { Requests } from '../../utils/Index'
 import Webcam from "react-webcam"
 import { connect } from 'react-redux'
+import Bloader from '../ButtonLoader/Bloader'
 
 
 const videoContraints = {
@@ -23,6 +24,7 @@ function dataURLtoFile(dataurl, filename) {
 const CaptureImage =(props)=> {
   console.log(props)
     const webcamRef = useRef(null)
+    const [loading,setLoading] = useState(false);
     const [image,setImage] = useState(null);
     const capture = useCallback(
       () => {
@@ -62,7 +64,7 @@ const CaptureImage =(props)=> {
                 type="button"
                 onClick={handleSubmit}
               >
-                Upload
+                {loading ? (<Bloader />) :("Uplaod")}
               </button>
             </div>
         </div>
