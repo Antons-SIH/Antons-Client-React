@@ -12,7 +12,9 @@ const NavBar = (props) => {
     <div>
       <nav className="nav flex flex-wrap items-center justify-between px-1 ">
         <div className="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
-          <span className="font-semibold text-xl tracking-tight">SIH</span>
+          <span className="anton-logo text-5xl tracking-tight px-5">
+            Antons
+          </span>
         </div>
         <input className="menu-btn hidden " type="checkbox" id="menu-btn" />
         <label

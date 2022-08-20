@@ -38,6 +38,7 @@ const img = {
 
 const UploadAadhar = (props) => {
   const [file, setFile] = useState();
+  const [error, setError] = useState();
   const [fileNames, setFileNames] = useState([]);
   const [uploadStatus, setUploadStatus] = useState("");
   const [loading, setLoading] = useState(false);
@@ -48,22 +49,27 @@ const UploadAadhar = (props) => {
   };
 
   const handleUpload = async (e) => {
-    setLoading(true);
     const formData = new FormData();
     formData.append("file", file);
-    console.log(file.path)
+    console.log(file.path);
     formData.append("email", props.userData.email);
-    try {
-      const res = await Requests.uploadAadhar(formData);
-      setUploadStatus(res.data.data);
+    if (file) {
+      setLoading(true);
+      try {
+        const res = await Requests.uploadAadhar(formData);
+        setUploadStatus(res.data.data);
+        setLoading(false);
+      } catch (ex) {
+        console.log(ex);
+        setLoading(false);
+      }
+    } else {
+      setError("Please Upload Relevant file");
       setLoading(false);
-    } catch (ex) {
-      setLoading(false);
-      console.log(ex);
     }
     setLoading(false);
   };
-  
+
   return (
     <div className="p-10">
       <Dropzone
@@ -109,7 +115,7 @@ const UploadAadhar = (props) => {
         </ul>
       </div>
       <button
-        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+        className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
         type="button"
         onClick={handleUpload}
         disabled={loading ? true : false}
@@ -117,6 +123,7 @@ const UploadAadhar = (props) => {
         {loading ? <>Uploading..</> : "Upload"}
       </button>
       <div>
+        {error}
         {!uploadStatus ? (
           ""
         ) : (
@@ -125,15 +132,12 @@ const UploadAadhar = (props) => {
             <Processing />
           </>
         )}
-      <div className="py-5">
-        <Link to="/user/capture/aadhar"  >
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        
-        >
-          Take a Photo
-        </button>
-        </Link>
+        <div className="py-5">
+          <Link to="/user/capture/aadhar">
+            <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">
+              Take a Photo
+            </button>
+          </Link>
         </div>
       </div>
     </div>

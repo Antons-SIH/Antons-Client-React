@@ -76,7 +76,7 @@ const Upload = (props) => {
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/aadhar">
                         <button
-                          className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                           type="submit"
                         >
                           Upload
@@ -128,7 +128,7 @@ const Upload = (props) => {
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/pan">
                         <button
-                          className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                           type="submit"
                         >
                           Upload

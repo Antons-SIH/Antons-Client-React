@@ -108,7 +108,7 @@ const Processing = (props) => {
         <>
           <Link
             to="/user/profile"
-            className="text-indigo-100 hover:text-indigo-500"
+            className="text-blue-300 hover:text-blue-500"
           >
             View
           </Link>
