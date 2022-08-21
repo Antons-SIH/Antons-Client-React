@@ -18,7 +18,7 @@ const Profile = (props) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-10 pt-10">
               <div
                 id="plan"
-                className="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
+                className="rounded-lg text-center overflow-hidden w-full transform   shadow-sm hover:shadow-2xl hover:shadow-indigo-500/40 shadow-indigo-500/40 hover:scale-105 transition duration-200 ease-in"
               >
                 <div
                   id="title"
@@ -81,7 +81,7 @@ const Profile = (props) => {
               </div>
               <div
                 id="plan"
-                className="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
+                className="rounded-lg text-center overflow-hidden w-full transform  shadow-sm hover:shadow-2xl hover:shadow-indigo-500/40 shadow-indigo-500/40 hover:scale-105 transition duration-200 ease-in"
               >
                 <div
                   id="title"
@@ -144,7 +144,7 @@ const Profile = (props) => {
               </div>
               <div
                 id="plan"
-                className="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
+                className="rounded-lg text-center overflow-hidden w-full transform  shadow-sm hover:shadow-2xl hover:shadow-indigo-500/40 shadow-indigo-500/40 hover:scale-105 transition duration-200 ease-in"
               >
                 <div
                   id="title"
@@ -196,7 +196,6 @@ const Profile = (props) => {
                         Remark - {props.userData.seeded_remark}
                       </li>
                     </ul>
-                    
                   </div>
                 </div>
               </div>

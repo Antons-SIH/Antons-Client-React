@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
-import UploadDocument from "../../components/Document/UploadAadhar";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Upload = (props) => {
-  useEffect(() => {
-    console.log(props.userData);
-  });
   return (
-    <div className="px-32 sm-px-10">
-      <div className="container mx-auto px-10 sm:px-8">
+    <div className="px-24 sm:px-4 md:px-10 lg:px-20 xl:px-32">
+      <div className=" mx-auto sm:px-8">
         <div className="py-8">
           <div>
             <h2 className="text-2xl font-semibold leading-tight">
@@ -48,7 +44,7 @@ const Upload = (props) => {
                         <div className="ml-3">
                           <p className=" whitespace-no-wrap">Aadhar</p>
                           <p className="text-gray-400 whitespace-no-wrap">
-                            -----
+                            {props.userData.aadhar}
                           </p>
                         </div>
                       </div>
@@ -60,7 +56,7 @@ const Upload = (props) => {
                         <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                           ></span>
                           <span className="relative">Verified</span>
                         </span>
@@ -79,7 +75,7 @@ const Upload = (props) => {
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/aadhar">
                         <button
-                          className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                           type="submit"
                         >
                           Upload
@@ -100,19 +96,19 @@ const Upload = (props) => {
                         <div className="ml-3">
                           <p className=" whitespace-no-wrap">Pan Card</p>
                           <p className="text-gray-400 whitespace-no-wrap">
-                            XXXX30
+                            {props.userData.pan}
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
                     <td className="px-5 py-5   bg-gray-800 "></td>
-                    {props.userData.aadhar ? (
+                    {props.userData.pan ? (
                       <td className="px-5 py-5 bg-gray-800 ">
                         <span className="relative inline-block px-3 py-1 font-semibold text-gray-900 leading-tight">
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                            className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                           ></span>
                           <span className="relative">Verified</span>
                         </span>
@@ -131,7 +127,7 @@ const Upload = (props) => {
                     <td className="px-5 py-5   bg-gray-800  text-right">
                       <Link to="/user/upload/pan">
                         <button
-                          className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                          className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                           type="submit"
                         >
                           Upload

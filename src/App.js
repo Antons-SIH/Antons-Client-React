@@ -44,7 +44,7 @@ function App(props) {
         <div className="bg-gray-900 min-h-screen text-white">
           <NavBar />
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             autoClose={3000}
             hideProgressBar={false}
             newestOnTop={false}

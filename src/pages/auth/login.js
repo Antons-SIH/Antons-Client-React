@@ -24,11 +24,11 @@ const Login = (props) => {
         password: "",
       }}
       onSubmit={async (values) => {
-        toast.success("Logged In");
         setLoading(true);
 
         Requests.login(values)
           .then((res) => {
+            toast.success("Logged In");
             localStorage.setItem("userinfo", res.data.data.token);
             props.login(res);
             setLoading(false);
