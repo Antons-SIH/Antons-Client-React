@@ -128,7 +128,7 @@ const LandingPage = (props) => {
           <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700 dark:text-gray-200">
             All India Council for Technical Education (AICTE).
           </p>
-          <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700 dark:text-gray-200">
+          <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-400">
             Due to the huge number of faculties and students and different
             points of data for verifying their Aadhaar, Aadhaar Seeded Bank
             Account Details from UID & NPCI and PAN. Integration should be done
