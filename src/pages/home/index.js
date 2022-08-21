@@ -125,10 +125,10 @@ const LandingPage = (props) => {
           <h3 className="text-3xl mb-2 font-semibold leading-normal">
             Problem Statement
           </h3>
-          <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700 dark:text-gray-200">
+          <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-200">
             All India Council for Technical Education (AICTE).
           </p>
-          <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700 dark:text-gray-200">
+          <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-400">
             Due to the huge number of faculties and students and different
             points of data for verifying their Aadhaar, Aadhaar Seeded Bank
             Account Details from UID & NPCI and PAN. Integration should be done
@@ -147,7 +147,7 @@ const LandingPage = (props) => {
           </p>
         </div>
         <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg hover:shadow-xl hover:shadow-indigo-500/40 shadow-indigo-500/40 rounded-lg bg-pink-600">
+          <div className="relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg hover:shadow-xl hover:shadow-indigo-500/40 shadow-indigo-500/40 rounded-lg bg-pink-600">
             <img
               alt="..."
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80"

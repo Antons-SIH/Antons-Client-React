@@ -3,6 +3,7 @@ const initialState = {
   token: localStorage.getItem("userinfo"),
   isAuthenticated: false,
   userData: {},
+ 
 };
 
 export default function auth(state = initialState, action) {
