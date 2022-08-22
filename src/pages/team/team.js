@@ -11,26 +11,26 @@ const Team = () => {
   return (
     <div>
       <div className="text-4xl flex justify-center py-10">Team Antons</div>
-      <div class="container min-h-screen flex flex-wrap ">
+      <div className="container min-h-screen flex flex-wrap ">
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src={atharvak} alt="atharvak" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Atharva Kinikar <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/atharvakinikar"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -39,7 +39,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -47,24 +47,24 @@ const Team = () => {
           </div>
         </div>
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src={aryan} alt="aryan" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Aryan Agrawal <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/aryanagrawal22"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -73,7 +73,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -81,25 +81,25 @@ const Team = () => {
           </div>
         </div>
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src={atharva} alt="atharva" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Atharva Nagmoti
                   <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/atharvanagmoti20"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -108,7 +108,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -116,24 +116,24 @@ const Team = () => {
           </div>
         </div>
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src="" alt="aditya" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Aditya Gitte <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/aditya-gitte"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -142,7 +142,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -150,24 +150,24 @@ const Team = () => {
           </div>
         </div>
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src={raj} alt="raj" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Raj Shende <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/shenderaj9021"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -176,7 +176,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -184,24 +184,24 @@ const Team = () => {
           </div>
         </div>
         <div className="p-6">
-          <div class="card">
-            <div class="imgBx">
+          <div className="card">
+            <div className="imgBx">
               <img src={mansi} alt="mansi" />
             </div>
-            <div class="content">
-              <div class="contentBx">
+            <div className="content">
+              <div className="contentBx">
                 <h3>
                   Mansi Gundre <br />
                 </h3>
               </div>
-              <ul class="sci">
+              <ul className="sci">
                 <li>
                   <a
                     href="https://github.com/mansi0829"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
@@ -210,7 +210,7 @@ const Team = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>

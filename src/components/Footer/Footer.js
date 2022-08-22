@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <footer class="footer-distributed bg-gray-900 text-2xl">
-      <div class="footer-right  items-center text-gray-400 hover:text-gray-200">
+    <footer className="footer-distributed bg-gray-900 text-2xl">
+      <div className="footer-right  items-center text-gray-400 hover:text-gray-200">
         <Link to="/team">Team</Link>
       </div>
-      <div class="footer-left text-gray-400 hover:text-gray-200">
+      <div className="footer-left text-gray-400 hover:text-gray-200">
         <p>Antons &copy; 2022</p>
       </div>
     </footer>
