@@ -1,5 +1,6 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+export const OTPVERIFIED ="OTPVERIFIED";
 
 export const login = (userData) => {
 	
@@ -9,6 +10,12 @@ export const login = (userData) => {
 		payload: userData
 	};
 	
+}
+export const otpverified =(userData) =>{
+	
+	return {
+		type:OTPVERIFIED
+	}
 }
 
 // Logout / Clear Profile

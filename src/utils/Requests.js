@@ -20,7 +20,9 @@ export const getUserByToken = (token) => {
     headers: { Authorization: `${token}` },
   });
 };
-
+export const verifyOtp =(data)=>{
+  return backend.post("/auth/verify",data)
+}
 export const getUserType = (user_type) => {
   return backend.get("/auth/login", user_type[1]);
 };

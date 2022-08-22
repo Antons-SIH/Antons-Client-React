@@ -1,4 +1,5 @@
-import { LOGIN, LOGOUT } from "./actions";
+import { LOGIN, LOGOUT,OTPVERIFIED} from "./actions";
+
 const initialState = {
   token: localStorage.getItem("userinfo"),
   isAuthenticated: false,
@@ -13,7 +14,6 @@ export default function auth(state = initialState, action) {
     case LOGIN: {
       return {
         ...state,
-        isAuthenticated: true,
         userData: payload.data.data,
         token:payload.data.data.token
       };
@@ -26,6 +26,12 @@ export default function auth(state = initialState, action) {
         isAuthenticated: false,
         userData: null,
       };
+    }
+    case OTPVERIFIED:{
+      return{
+        ...state,
+        isAuthenticated:true,
+      }
     }
     default:
       return state;

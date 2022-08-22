@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 import { Requests } from "./utils/Index";
 import { login } from "./store/actions";
+import { otpverified } from "./store/actions";
 import LandingPage from "./pages/home";
 import Login from "./pages/auth/login";
 import Profile from "./pages/user/profile";
@@ -29,6 +30,7 @@ function App(props) {
       Requests.getUserByToken(token)
         .then((res) => {
           props.login(res);
+          props.otpverified(res);
           setisLoading(false);
         })
         .catch((error) => {
@@ -110,6 +112,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (userData) => dispatch(login(userData)),
+    otpverified:(userData)=>dispatch(otpverified(userData))
   };
 };
 
