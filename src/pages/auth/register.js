@@ -18,6 +18,30 @@ const college = [
   "College of Engineering Pune",
   "National Institute of Technology",
 ];
+const admissionyear = [
+  "2015",
+  "2016",
+  "2017",
+  "2018",
+  "2019",
+  "2020",
+  "2021",
+  "2022"
+  ,"2023"
+  ,"2024"
+  ,"2024",
+  "2025",
+  "2026",
+  "2027",
+  "2028",
+  "2029",
+  "2030"
+]
+const gender =[
+  "Male",
+  "Female",
+  "Other"
+]
 const user_type = ["Student", "Teacher", "Admin", "Super"];
 
 const Register = (props) => {
@@ -129,7 +153,34 @@ const Register = (props) => {
                   ))}
                 </Field>
               </div>
-
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Admission year"}
+                  component="select"
+                  name={"admission_year"}
+                  type={"admission_year"}
+                  onChange={formik.handleChange}
+                >
+                  {admissionyear.map((val, id) => (
+                    <option value={val}>{val}</option>
+                  ))}
+                </Field>
+              </div>
+              <div className="">
+                <Field
+                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder={"Gender"}
+                  component="select"
+                  name={"gender"}
+                  type={"gender"}
+                  onChange={formik.handleChange}
+                >
+                  {gender.map((val, id) => (
+                    <option value={val}>{val}</option>
+                  ))}
+                </Field>
+              </div>
               <div className="">
                 <Field
                   className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"

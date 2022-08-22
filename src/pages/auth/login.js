@@ -31,14 +31,16 @@ const Login = (props) => {
       {otpcondition ? (<>
         <Formik
           initialValues={{
-            otp: 0,
+            email:email,
+            otp: ""
           }}
           onSubmit={async (values) => {
             setLoading(true);
-            const otp = values.otp;
-            Requests.verifyOtp({email,otp})
+            
+            Requests.verifyOtp(values)
               .then((res) => {
                 toast.success("Logged in");
+                localStorage.setItem("userinfo", res.data.data.token);
                 props.login(res);
                 props.otpverified(res);
                 setLoading(false);
@@ -64,7 +66,7 @@ const Login = (props) => {
                       className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                       placeholder={"Enter an OTP"}
                       name={"otp"}
-                      type={"number"}
+                      type={"otp"}
                       onChange={formik.handleChange}
                     />
 
@@ -111,8 +113,7 @@ const Login = (props) => {
                 console.log(values);
               Requests.login(values)
                 .then((res) => {
-                  localStorage.setItem("userinfo", res.data.data.token);
-                  props.login(res);
+              
                   setEmail(res.data.data.email)
                   setOtpcondition(true);
                   setLoading(false);
