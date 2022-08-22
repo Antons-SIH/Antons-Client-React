@@ -21,7 +21,7 @@ export const getUserByToken = (token) => {
   });
 };
 export const verifyOtp = (data) => {
-  return backend.post("/auth/verify", data)
+  return backend.post("/auth/verify", data);
 };
 export const getUserType = (user_type) => {
   return backend.get("/auth/login", user_type[1]);
@@ -61,4 +61,18 @@ export const getSuperAdminDetails = (token) => {
 
 export const getColleges = (data) => {
   return backend.get("/college", data);
+};
+
+// bulk validation
+
+export const sendUserMail = (token) => {
+  return backend.get("/verify/admin", {
+    headers: { Authorization: `${token}` },
+  });
+};
+
+export const sendAdminMail = (token) => {
+  return backend.get("/verify/super", {
+    headers: { Authorization: `${token}` },
+  });
 };

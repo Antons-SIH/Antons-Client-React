@@ -53,9 +53,9 @@ const Profile = (props) => {
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
                       Verified On :
-                      {props.userData.aadhar_date === "None"
+                      {props.userData.last_updated === "None"
                         ? "Not yet Verified"
-                        : props.userData.aadhar_date.substring(0, 10)}
+                        : props.userData.last_updated.substring(0, 10)}
                     </p>
                   </div>
                   <div
@@ -116,9 +116,9 @@ const Profile = (props) => {
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
                       Verified On :
-                      {props.userData.pan_date === "None"
+                      {props.userData.last_updated === "None"
                         ? "Not yet Verified"
-                        : props.userData.pan_date.substring(0, 10)}
+                        : props.userData.last_updated.substring(0, 10)}
                     </p>
                   </div>
                   <div
@@ -181,9 +181,9 @@ const Profile = (props) => {
                     </svg>
                     <p className="text-gray-500 text-sm pt-2">
                       Verified On :
-                      {props.userData.seeded_date === "None"
+                      {props.userData.last_updated === "None"
                         ? "Not yet Verified"
-                        : props.userData.seeded_date.substring(0, 10)}
+                        : props.userData.last_updated.substring(0, 10)}
                     </p>
                   </div>
                   <div

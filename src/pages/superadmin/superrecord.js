@@ -7,6 +7,7 @@ import { columns } from "./data";
 import { customStyles } from "../../components/Table/CustomStyles";
 import { toast } from "react-toastify";
 import { CSVLink } from "react-csv";
+import Processing from "../../components/Processing/Processing";
 
 createTheme(
   "solarized",
@@ -40,9 +41,22 @@ createTheme(
 
 function SuperRecord() {
   const [data, setData] = useState("");
+  const [sendData, setSendData] = useState("");
   const tableData = {
     columns,
     data,
+  };
+
+  const sendMail = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("userinfo");
+    Requests.sendAdminMail(token)
+      .then((res) => {
+        setSendData(res.data);
+      })
+      .catch((er) => {
+        toast.error(er);
+      });
   };
   useEffect(() => {
     const token = localStorage.getItem("userinfo");
@@ -50,8 +64,6 @@ function SuperRecord() {
       Requests.getSuperAdminDetails(token)
         .then((res) => {
           setData(res.data.data);
-          console.log(res.data.data);
-          console.log(res.data.data[0].user_type);
         })
         .catch((error) => {
           toast.error(error);
@@ -85,6 +97,15 @@ function SuperRecord() {
           theme="solarized"
         />
       </DataTableExtensions>
+      <div className="py-5">
+        <button
+          className="py-2 px-6 shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold rounded"
+          onClick={sendMail}
+        >
+          Send Mail
+        </button>
+      </div>
+      {sendData.success ? <Processing /> : ""}
     </div>
   );
 }

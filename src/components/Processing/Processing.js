@@ -1,6 +1,7 @@
 import "./Processing.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const LoadingBar = (props) => {
   const { percentage } = props;
@@ -45,7 +46,11 @@ const Loader = (props) => {
     <div className="Loader">
       <LoadingBar percentage={progress} />
       <span className="Loader__text">
-        {loaded ? "Processing Done!" : "Processing image"} - {progress}%
+        {
+          <>
+            {loaded ? "Processing Done!" : "Processing"} - {progress}%
+          </>
+        }
       </span>
     </div>
   );
@@ -59,7 +64,7 @@ const fakeLoadingTask = (ms, progressAmount) => {
 const requirements = [
   {
     load: async () => {
-      return fakeLoadingTask(3500, 30);
+      return fakeLoadingTask(3000, 30);
     },
   },
   {
@@ -104,18 +109,36 @@ const Processing = (props) => {
         onComplete={onComplete}
         loadingID={id}
       />
-      {loaded && (
+      {props.userData.user_type == "Student" ||
+      props.userData.user_type == "Teacher" ? (
         <>
-          <Link
-            to="/user/profile"
-            className="text-blue-300 hover:text-blue-500"
-          >
-            View Status
-          </Link>
+          {loaded && (
+            <div className="text-center">
+              <span className="px-5">Verification done !</span>
+              <Link
+                to="/user/profile"
+                className="text-blue-300 hover:text-blue-500"
+              >
+                View Status
+              </Link>
+            </div>
+          )}
         </>
+      ) : (
+        <>{loaded && <div className="text-center">Mail Send !</div>}</>
       )}
     </div>
   );
 };
 
-export default Processing;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: state.isAuthenticated,
+    userData: state.userData,
+  };
+}
+function mapActionToProps(dispatch) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Processing);
