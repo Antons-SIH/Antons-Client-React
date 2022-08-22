@@ -36,7 +36,7 @@ const Login = (props) => {
           }}
           onSubmit={async (values) => {
             setLoading(true);
-            
+            console.log(values)
             Requests.verifyOtp(values)
               .then((res) => {
                 toast.success("Logged in");
