@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import { Requests } from "./../../utils/Index";
-import Pansample from "../../static/Pansample.jpeg";
 import Processing from "../Processing/Processing";
+import Pansample from "../../static/Pansample.jpeg";
 
 const UploadPan = (props) => {
   const [file, setFile] = useState();
@@ -21,10 +21,11 @@ const UploadPan = (props) => {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
+      console.log(file.path);
       formData.append("email", props.userData.email);
       try {
         const res = await Requests.uploadPan(formData);
-        setUploadStatus(res.data.messag);
+        setUploadStatus(res.data.data);
         setLoading(false);
       } catch (ex) {
         setLoading(false);
@@ -61,7 +62,7 @@ const UploadPan = (props) => {
           <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-8">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg ">
               <img
-                alt="Pansample"
+                alt="..."
                 src={Pansample}
                 className="w-full align-middle rounded-t-lg"
               />
@@ -120,7 +121,7 @@ const UploadPan = (props) => {
       >
         {loading ? <>Uploading..</> : "Upload"}
       </button>
-      <div>
+      <div className="py-5" >
         {!uploadStatus ? (
           ""
         ) : (
