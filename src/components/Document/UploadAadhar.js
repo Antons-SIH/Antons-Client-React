@@ -121,7 +121,7 @@ const UploadAadhar = (props) => {
       >
         {loading ? <>Uploading..</> : "Upload"}
       </button>
-      <div className="py-5" >
+      <div className="py-5">
         {!uploadStatus ? (
           ""
         ) : (

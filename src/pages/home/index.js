@@ -83,8 +83,8 @@ const LandingPage = (props) => {
                   </div>
                   <h6 className="text-xl font-semibold">Aadhaar</h6>
                   <p className="mt-2 mb-4 text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Aperiam, consectetur iure quisquam alias quis dolorem
+                    Aadhaar number can be verifed to acertain if the Aadhaar
+                    number is valid and is not deactivated.
                   </p>
                 </div>
               </div>
@@ -97,8 +97,8 @@ const LandingPage = (props) => {
                   </div>
                   <h6 className="text-xl font-semibold">PAN</h6>
                   <p className="mt-2 mb-4 text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Aperiam, consectetur iure quisquam alias quis dolorem
+                    Pan number can be verifed to acertain if the Pan number is
+                    valid and is not deactivated.
                   </p>
                 </div>
               </div>
@@ -111,8 +111,8 @@ const LandingPage = (props) => {
                   </div>
                   <h6 className="text-xl font-semibold">Bank Details</h6>
                   <p className="mt-2 mb-4 text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Aperiam, consectetur iure quisquam alias quis dolorem
+                    Bank Details can be verifed to acertain if the Bank Details
+                    is valid and is not deactivated.
                   </p>
                 </div>
               </div>
