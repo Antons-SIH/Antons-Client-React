@@ -166,6 +166,7 @@ const UploadAadhar = (props) => {
                       <div className="text-center">
                         <img src={image} className="m-auto p-5" />
 
+<<<<<<< HEAD
                         <button
                           className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
                           type="button"
@@ -210,6 +211,23 @@ const UploadAadhar = (props) => {
          ) : (
          <>
             <Otp />
+=======
+      <button
+        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
+        type="button"
+        onClick={handleUpload}
+        disabled={loading ? true : false}
+      >
+        {loading ? <>Uploading..</> : "Upload"}
+      </button>
+      <div className="py-5">
+        {!uploadStatus ? (
+          ""
+        ) : (
+          <>
+            {uploadStatus}
+            <Processing />
+>>>>>>> 7e81cb90bc2795f501d48e19ef3be0a7a3b1164d
           </>
         )
      } */}
