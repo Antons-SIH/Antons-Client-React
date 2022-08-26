@@ -1,5 +1,6 @@
 import axios from "axios";
 import { email } from "./validators";
+const token = localStorage.getItem("userinfo")
 
 const backend = axios.create({
   baseURL: "https://aryanagrawal.in/api",
@@ -23,15 +24,45 @@ export const getUserByToken = (token) => {
 export const verifyOtp = (data) => {
   return backend.post("/auth/verify", data);
 };
+
+
 export const getUserType = (user_type) => {
   return backend.get("/auth/login", user_type[1]);
 };
+
+export const sendOtp = (data) => {
+  console.log(data)
+  return backend.post("/phone/sendotp", data,{
+    headers: { Authorization: `${token}` },
+  });
+};
+
+export const verifyPhoneOtp = (data) => {
+  return backend.post("/phone/verifyotp", data,{
+    headers: { Authorization: `${token}` },
+  });
+};
+
+// export const sendOtp = ({data,token}) =>{
+//   return backend.post("/phone/sendotp", data,{
+//     headers: { Authorization: `${token}` },
+//   });
+// }
+// export const verifyOtp = ({data,token}) =>{
+//   return backend.post("/phone/verifyotp", data,{
+//     headers: { Authorization: `${token}` },
+//   });
+// }
+
 
 //user
 
 export const uploadAadhar = (formData) => {
   return backend.post("/image/upload/aadhar", formData);
 };
+export const uplaodCapturedAadhar = (formData) =>{
+  return backend.post("/image/phone/aadhar", formData);
+}
 
 export const uploadPan = (file, email) => {
   return backend.post("/image/upload/pan", file, email, {

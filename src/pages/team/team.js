@@ -5,7 +5,7 @@ import aryan from "../../static/aryan.jpg";
 import atharvak from "../../static/atharvak.jpg";
 import atharva from "../../static/atharva.jpg";
 import raj from "../../static/raj.jpg";
-// import aditya from "../../static/aditya.jpg";
+import aditya from "../../static/aditya.jpeg";
 
 const Team = () => {
   return (
@@ -118,7 +118,7 @@ const Team = () => {
         <div className="p-6">
           <div className="card">
             <div className="imgBx">
-              <img src="" alt="aditya" />
+              <img src={aditya} alt="aditya" />
             </div>
             <div className="content">
               <div className="contentBx">

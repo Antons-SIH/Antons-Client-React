@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Requests } from "../../utils/Index";
-import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 const Profile = (props) => {
+  console.log(props);
   return (
     <>
       {props.userData ? (
@@ -16,7 +15,8 @@ const Profile = (props) => {
                     {props.userData.name}
                   </h1>
                   <p className="text-light text-gray-500 text-xl">
-                    Verified Documents
+                    {props.userData.email} <br></br>
+                    {props.userData.college}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-10 pt-10">
@@ -67,7 +67,13 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>Size: 2 MB size</li>
+                          <li>
+                            {props.userData.aadhar ? (
+                              <>Aadhar Number: {props.userData.aadhar}</>
+                            ) : (
+                              "Aadhar Number: --"
+                            )}
+                          </li>
                           <li className="font-bold">
                             Remark - {props.userData.aadhar_remark}
                           </li>
@@ -132,7 +138,13 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>Size: 2 MB size</li>
+                          <li>
+                            {props.userData.pan ? (
+                              <>Pan Number: {props.userData.pan}</>
+                            ) : (
+                              "Pan Number: --"
+                            )}
+                          </li>
                           <li className="font-bold">
                             Remark - {props.userData.pan_remark}
                           </li>
@@ -159,7 +171,7 @@ const Profile = (props) => {
                       <h2 className="font-bold text-3xl text-white">
                         Bank Details
                       </h2>
-                      {props.userData.seseded_bank_acc ? (
+                      {props.userData.seeded_bank_acc ? (
                         <h3 className="font-normal  text-xl mt-2 text-green-500">
                           Verified
                         </h3>
@@ -197,12 +209,30 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>Size: 2 MB size</li>
+                          <li>
+                            {props.userData.seeded_bank_acc ? (
+                              <>
+                                Seeded Bank Account Number:
+                                {props.userData.seeded_bank_acc}
+                              </>
+                            ) : (
+                              "Aadhar Number: --"
+                            )}
+                          </li>
                           <li className="font-bold">
                             Remark - {props.userData.seeded_remark}
                           </li>
                         </ul>
                       </div>
+                      {/* <button id="verify" className="w-full mt-10 px-6" disabled>
+                          <button
+                            type="button"
+                            className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
+                            disabled
+                          >
+                            verify
+                          </button>
+                        </button> */}
                     </div>
                   </div>
                 </div>

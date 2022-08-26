@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 import { Requests } from "./../../utils/Index";
-import Pansample from "../../static/Pansample.jpeg";
 import Processing from "../Processing/Processing";
+import Pansample from "../../static/Pansample.jpeg";
 
 const UploadPan = (props) => {
   const [file, setFile] = useState();
@@ -21,10 +21,11 @@ const UploadPan = (props) => {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
+      console.log(file.path);
       formData.append("email", props.userData.email);
       try {
         const res = await Requests.uploadPan(formData);
-        setUploadStatus(res.data.messag);
+        setUploadStatus(res.data.data);
         setLoading(false);
       } catch (ex) {
         setLoading(false);
@@ -38,7 +39,7 @@ const UploadPan = (props) => {
     <div className="px-5 sm:px-4 md:px-10 lg:px-20 xl:px-32">
       <div className="py-8">
         <div className="flex flex-wrap items-center mt-8 shadow-lg hover:shadow-xl hover:shadow-indigo-500/40 shadow-indigo-500/40">
-          <div className="w-full md:w-5/12 mr-auto ml-auto px-2">
+          <div className="w-full md:w-5/12 mr-auto ml-auto p-2">
             <h3 className="text-3xl mb-2 font-semibold leading-normal">
               Instructions
             </h3>
@@ -61,7 +62,7 @@ const UploadPan = (props) => {
           <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-8">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg ">
               <img
-                alt="Pansample"
+                alt="..."
                 src={Pansample}
                 className="w-full align-middle rounded-t-lg"
               />
@@ -120,7 +121,7 @@ const UploadPan = (props) => {
       >
         {loading ? <>Uploading..</> : "Upload"}
       </button>
-      <div>
+      <div className="py-5" >
         {!uploadStatus ? (
           ""
         ) : (

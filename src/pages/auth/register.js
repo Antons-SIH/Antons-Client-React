@@ -26,22 +26,18 @@ const admissionyear = [
   "2019",
   "2020",
   "2021",
-  "2022"
-  ,"2023"
-  ,"2024"
-  ,"2024",
+  "2022",
+  "2023",
+  "2024",
+  "2024",
   "2025",
   "2026",
   "2027",
   "2028",
   "2029",
-  "2030"
-]
-const gender =[
-  "Male",
-  "Female",
-  "Other"
-]
+  "2030",
+];
+const gender = ["Male", "Female", "Other"];
 const user_type = ["Student", "Teacher", "Admin", "Super"];
 
 const Register = (props) => {
@@ -51,13 +47,12 @@ const Register = (props) => {
       .then((res) => {
         setLoading(false);
         setData(res);
-        console.log(res.config);
       })
       .catch((err) => {
         setLoading(false);
         console.log(err);
       });
-  });
+  }, []);
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   return (
@@ -70,6 +65,7 @@ const Register = (props) => {
         college: "SCTR'S Pune Institute Of Computer Technology",
         user_type: "Student",
         phone: "",
+        gender: "Male",
       }}
       onSubmit={async (values) => {
         setLoading(true);

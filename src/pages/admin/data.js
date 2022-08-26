@@ -11,17 +11,17 @@ export const columns = [
   },
   {
     name: "Aadhar",
-    selector: (row) => row.aadhar,
+    selector: (row) => (row.aadhar ? <>{row.aadhar}</> : "-"),
     sortable: true,
   },
   {
     name: "Pan Card",
-    selector: (row) => row.pan,
+    selector: (row) => (row.pan ? <>{row.pan}</> : "-"),
     sortable: true,
   },
   {
     name: "Bank Details",
-    selector: (row) => row.seeded,
+    selector: (row) => (row.seeded_bank_acc ? <>{row.seeded_bank_acc}</> : "-"),
     sortable: true,
   },
 ];
