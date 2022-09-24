@@ -3,7 +3,7 @@ import { email } from "./validators";
 const token = localStorage.getItem("userinfo")
 
 const backend = axios.create({
-  baseURL: "https://aryanagrawal.in/api",
+  baseURL: `${process.env.REACT_APP_ANTONS_API}`,
 });
 
 //auth

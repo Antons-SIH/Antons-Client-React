@@ -149,7 +149,7 @@ const UploadAadhar = (props) => {
                           height={videoContraints.height}
                           ref={webcamRef}
                           screenshotFormat="image/jpeg"
-                          videoConstraints={videoContraints}
+                          // videoConstraints={videoContraints}
                           className="m-auto"
                         ></Webcam>
                         <div className="flex items-baseline justify-center py-3">
@@ -166,7 +166,6 @@ const UploadAadhar = (props) => {
                       <div className="text-center">
                         <img src={image} className="m-auto p-5" />
 
-<<<<<<< HEAD
                         <button
                           className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
                           type="button"
@@ -196,7 +195,7 @@ const UploadAadhar = (props) => {
             </>
           )}
         </div>
-        {/* <Link to="/user/capture/aadhar">
+        <Link to="/user/capture/aadhar">
           <button
             className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
             type="button"
@@ -205,29 +204,12 @@ const UploadAadhar = (props) => {
           >
             {loading ? <>Uploading..</> : "Take Photo"}
           </button>
-        </Link> */}
+        </Link>
       </div>
       {/*        
          ) : (
          <>
             <Otp />
-=======
-      <button
-        className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
-        type="button"
-        onClick={handleUpload}
-        disabled={loading ? true : false}
-      >
-        {loading ? <>Uploading..</> : "Upload"}
-      </button>
-      <div className="py-5">
-        {!uploadStatus ? (
-          ""
-        ) : (
-          <>
-            {uploadStatus}
-            <Processing />
->>>>>>> 7e81cb90bc2795f501d48e19ef3be0a7a3b1164d
           </>
         )
      } */}

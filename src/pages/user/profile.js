@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { Requests } from "../../utils/Index";
+import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 const Profile = (props) => {
-  console.log(props);
+  console.log(props)
   return (
     <>
       {props.userData ? (
@@ -15,8 +17,7 @@ const Profile = (props) => {
                     {props.userData.name}
                   </h1>
                   <p className="text-light text-gray-500 text-xl">
-                    {props.userData.email} <br></br>
-                    {props.userData.college}
+                    Verified Documents
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-10 pt-10">
@@ -67,13 +68,7 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>
-                            {props.userData.aadhar ? (
-                              <>Aadhar Number: {props.userData.aadhar}</>
-                            ) : (
-                              "Aadhar Number: --"
-                            )}
-                          </li>
+                          <li>Size: 2 MB size</li>
                           <li className="font-bold">
                             Remark - {props.userData.aadhar_remark}
                           </li>
@@ -138,13 +133,7 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>
-                            {props.userData.pan ? (
-                              <>Pan Number: {props.userData.pan}</>
-                            ) : (
-                              "Pan Number: --"
-                            )}
-                          </li>
+                          <li>Size: 2 MB size</li>
                           <li className="font-bold">
                             Remark - {props.userData.pan_remark}
                           </li>
@@ -209,16 +198,7 @@ const Profile = (props) => {
                         className="leading-8 mb-10 text-lg font-light"
                       >
                         <ul>
-                          <li>
-                            {props.userData.seeded_bank_acc ? (
-                              <>
-                                Seeded Bank Account Number:
-                                {props.userData.seeded_bank_acc}
-                              </>
-                            ) : (
-                              "Aadhar Number: --"
-                            )}
-                          </li>
+                          <li>Size: 2 MB size</li>
                           <li className="font-bold">
                             Remark - {props.userData.seeded_remark}
                           </li>

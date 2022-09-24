@@ -8,7 +8,6 @@ import { Formik } from "formik";
 import { Requests } from "../../utils/Index";
 import { login } from "../../store/actions";
 import { toast } from "react-toastify";
-<<<<<<< HEAD
 import { phoneverified } from "../../store/actions";
 
 const Otp = (props) => {
@@ -133,78 +132,20 @@ const Otp = (props) => {
     }
     
     </>
-=======
-
-const Otp = (props) => {
-  const [data, setData] = useState("");
-
-  const [loading, setLoading] = useState(false);
-  return (
-    <Formik
-      initialValues={{
-        otp: "",
-      }}
-      onSubmit={console.log("verify")}
-    >
-      {(formik) => (
-        <div className="w-full min-h-screen ">
-          <div className="w-80 md:w-[400px] text-center m-auto py-14 justify-center h-min">
-            <h1 className="text-4xl p-4">Verify Your Upload</h1>
-            <Form
-              className="p-4 space-y-4 mx-auto "
-              onSubmit={formik.handleSubmit}
-            >
-              <div>
-                <Field
-                  className="w-full text-gray-500 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  placeholder={"otp"}
-                  name={"otp"}
-                  type={"otp"}
-                  onChange={formik.handleChange}
-                />
-                {formik.errors.email && (
-                  <div className="text-red-500 font-bold">
-                    {formik.errors.email}
-                  </div>
-                )}
-              </div>
-              <div className="flex items-baseline justify-center py-3">
-                <button
-                  className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                  type="button"
-                  onClick={formik.handleSubmit}
-                  disabled={loading ? true : false}
-                >
-                  {loading ? "Loading" : "Verify"}
-                </button>
-              </div>
-            </Form>
-          </div>
-        </div>
-      )}
-    </Formik>
->>>>>>> 7e81cb90bc2795f501d48e19ef3be0a7a3b1164d
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.isAuthenticated,
-<<<<<<< HEAD
     phoneVerfied:state.phoneVerfied
-=======
->>>>>>> 7e81cb90bc2795f501d48e19ef3be0a7a3b1164d
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-<<<<<<< HEAD
   return {
     phoneVerfied: () => dispatch(phoneverified())
   };
-=======
-  return {};
->>>>>>> 7e81cb90bc2795f501d48e19ef3be0a7a3b1164d
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Otp);
