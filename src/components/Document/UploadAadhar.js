@@ -149,7 +149,7 @@ const UploadAadhar = (props) => {
                           height={videoContraints.height}
                           ref={webcamRef}
                           screenshotFormat="image/jpeg"
-                          // videoConstraints={videoContraints}
+                          videoConstraints={videoContraints}
                           className="m-auto"
                         ></Webcam>
                         <div className="flex items-baseline justify-center py-3">
@@ -195,7 +195,7 @@ const UploadAadhar = (props) => {
             </>
           )}
         </div>
-        <Link to="/user/capture/aadhar">
+        {/* <Link to="/user/capture/aadhar">
           <button
             className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded "
             type="button"
@@ -204,7 +204,7 @@ const UploadAadhar = (props) => {
           >
             {loading ? <>Uploading..</> : "Take Photo"}
           </button>
-        </Link>
+        </Link> */}
       </div>
       {/*        
          ) : (
