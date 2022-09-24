@@ -4,6 +4,7 @@ import { Requests } from "../../utils/Index";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
 const Profile = (props) => {
+  console.log(props)
   return (
     <>
       {props.userData ? (
@@ -159,7 +160,7 @@ const Profile = (props) => {
                       <h2 className="font-bold text-3xl text-white">
                         Bank Details
                       </h2>
-                      {props.userData.seseded_bank_acc ? (
+                      {props.userData.seeded_bank_acc ? (
                         <h3 className="font-normal  text-xl mt-2 text-green-500">
                           Verified
                         </h3>
@@ -203,6 +204,15 @@ const Profile = (props) => {
                           </li>
                         </ul>
                       </div>
+                      {/* <button id="verify" className="w-full mt-10 px-6" disabled>
+                          <button
+                            type="button"
+                            className="w-full block bg-gray-800 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
+                            disabled
+                          >
+                            verify
+                          </button>
+                        </button> */}
                     </div>
                   </div>
                 </div>

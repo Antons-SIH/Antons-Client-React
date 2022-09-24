@@ -1,9 +1,11 @@
-import { LOGIN, LOGOUT,OTPVERIFIED} from "./actions";
+import { LOGIN, LOGOUT,OTPVERIFIED, PHONEVERIFIED,FACEVERIFIED} from "./actions";
 
 const initialState = {
   token: localStorage.getItem("userinfo"),
   isAuthenticated: false,
   userData: {},
+  phoneVerfied:false,
+  faceVerfied:""
  
 };
 
@@ -31,6 +33,18 @@ export default function auth(state = initialState, action) {
       return{
         ...state,
         isAuthenticated:true,
+      }
+    }
+    case PHONEVERIFIED:{
+      return{
+        ...state,
+        phoneVerfied:true
+      }
+    }
+    case FACEVERIFIED:{
+      return{
+        ...state,
+        faceVerfied:payload.address
       }
     }
     default:

@@ -39,7 +39,7 @@ const UploadPan = (props) => {
     <div className="px-5 sm:px-4 md:px-10 lg:px-20 xl:px-32">
       <div className="py-8">
         <div className="flex flex-wrap items-center mt-8 shadow-lg hover:shadow-xl hover:shadow-indigo-500/40 shadow-indigo-500/40">
-          <div className="w-full md:w-5/12 mr-auto ml-auto px-2">
+          <div className="w-full md:w-5/12 mr-auto ml-auto p-2">
             <h3 className="text-3xl mb-2 font-semibold leading-normal">
               Instructions
             </h3>

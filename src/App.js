@@ -89,6 +89,7 @@ function App(props) {
               <>
                 <Route path="/auth/login" element={<Login />} />
                 <Route path="/auth/register" element={<Register />} />
+                <Route path="/user/profile" element={<Profile />} />
               </>
             )}
             <Route path="/" element={<LandingPage />} />

@@ -77,7 +77,6 @@ const CaptureImage =(props)=> {
          height={videoContraints.height}
          ref={webcamRef}
          screenshotFormat="image/png"
-         width={videoContraints.width}
          videoConstraints={videoContraints}
          className="m-auto"
          >

@@ -47,13 +47,12 @@ const Register = (props) => {
       .then((res) => {
         setLoading(false);
         setData(res);
-        console.log(res.config);
       })
       .catch((err) => {
         setLoading(false);
         console.log(err);
       });
-  });
+  }, []);
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   return (
@@ -66,6 +65,7 @@ const Register = (props) => {
         college: "SCTR'S Pune Institute Of Computer Technology",
         user_type: "Student",
         phone: "",
+        gender: "Male",
       }}
       onSubmit={async (values) => {
         setLoading(true);
